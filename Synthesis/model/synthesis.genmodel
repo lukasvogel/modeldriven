@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Synthesis/src" modelPluginID="Synthesis" modelName="Synthesis"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>synthesis.ecore</foreignModel>
+  <genPackages prefix="Synthesis" disposableProviderFactory="true" ecorePackage="synthesis.ecore#/">
+    <genDataTypes ecoreDataType="synthesis.ecore#//State"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//Operation"/>
+    <genClasses ecoreClass="synthesis.ecore#//InteractionTable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference synthesis.ecore#//InteractionTable/interaction"/>
+      <genOperations ecoreOperation="synthesis.ecore#//InteractionTable/project">
+        <genParameters ecoreParameter="synthesis.ecore#//InteractionTable/project/actor"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Interaction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Interaction/preState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Interaction/Sender"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Interaction/Operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Interaction/Receiver"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Interaction/Return"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Interaction/PostState"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Actor"/>
+    <genClasses ecoreClass="synthesis.ecore#//UserActor"/>
+    <genClasses ecoreClass="synthesis.ecore#//SystemObject"/>
+    <genClasses ecoreClass="synthesis.ecore#//State.1"/>
+  </genPackages>
+</genmodel:GenModel>

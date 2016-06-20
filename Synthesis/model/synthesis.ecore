@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="synthesis" nsURI="http://www.example.org/synthesis" nsPrefix="synthesis">
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionTable">
+    <eOperations name="project" eType="#//InteractionTable">
+      <eParameters name="actor" eType="#//Actor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interaction" upperBound="-1"
+        eType="#//Interaction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interaction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preState" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Sender" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Operation" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Receiver"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Return"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PostState" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="State" instanceClassName="synthesis.State"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Operation" instanceTypeName="newDataType2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UserActor" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State"/>
+</ecore:EPackage>
