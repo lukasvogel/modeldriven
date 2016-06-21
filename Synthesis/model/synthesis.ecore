@@ -5,21 +5,38 @@
     <eOperations name="project" eType="#//InteractionTable">
       <eParameters name="actor" eType="#//Actor"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interaction" upperBound="-1"
-        eType="#//Interaction"/>
+    <eOperations name="behaviour" eType="#//Behaviour">
+      <eParameters name="actor" eType="#//Actor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
+        eType="#//Communication"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Interaction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preState" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Sender" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Operation" eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Receiver"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Return"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PostState" eType="#//State"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="State" instanceClassName="synthesis.State"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Operation" instanceTypeName="newDataType2"/>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="UserActor" eSuperTypes="#//Actor"/>
   <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//Actor"/>
   <eClassifiers xsi:type="ecore:EClass" name="State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Behaviour"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Message"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UserCommunication" eSuperTypes="#//Communication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+        eType="#//UserActor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
+    <eLiterals name="void"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Communication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preState" lowerBound="1"
+        eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
+        eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="return" eType="#//ReturnType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
+        eType="#//Actor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemCommunication" eSuperTypes="#//Communication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+        eType="#//SystemObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NonState" eSuperTypes="#//State"/>
 </ecore:EPackage>
