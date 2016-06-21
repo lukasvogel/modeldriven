@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="synthesis" nsURI="http://www.example.org/synthesis" nsPrefix="synthesis">
-  <eClassifiers xsi:type="ecore:EClass" name="InteractionTable">
-    <eOperations name="project" eType="#//InteractionTable">
-      <eParameters name="actor" eType="#//Actor"/>
-    </eOperations>
-    <eOperations name="behaviour" eType="#//Behaviour">
-      <eParameters name="actor" eType="#//Actor"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
-        eType="#//Communication"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Actor" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UserActor" eSuperTypes="#//Actor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//Actor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="State"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Behaviour"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Message"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UserCommunication" eSuperTypes="#//Communication">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
-        eType="#//UserActor"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
-    <eLiterals name="void"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Communication">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preState" lowerBound="1"
-        eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
-        eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//Message"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="return" eType="#//ReturnType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
-        eType="#//Actor"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemCommunication" eSuperTypes="#//Communication">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
-        eType="#//SystemObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NonState" eSuperTypes="#//State"/>
+  <eSubpackages name="Scenario">
+    <eClassifiers xsi:type="ecore:EClass" name="Message">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
+          eType="#//Scenario/Actor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+          eType="#//Scenario/Operation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Communication" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="return" eType="#//Scenario/ReturnType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Actor" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
+      <eLiterals name="void"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+      <eOperations name="project" eType="#//Scenario/Scenario">
+        <eParameters name="actor" eType="#//Scenario/Actor"/>
+      </eOperations>
+      <eOperations name="behaviour" eType="#//Scenario/Behaviour">
+        <eParameters name="actor" eType="#//Scenario/Actor"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
+          eType="#//Scenario/Communication"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="State"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UserMessage" eSuperTypes="#//Scenario/Message">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+          eType="#//Scenario/UserActor"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserCommunication" eSuperTypes="#//Scenario/Communication">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="message" lowerBound="1"
+          eType="#//Scenario/UserMessage"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemMessage" eSuperTypes="#//Scenario/Message">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+          eType="#//Scenario/SystemObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//Scenario/Actor"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemCommunication" eSuperTypes="#//Scenario/Communication">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="message" lowerBound="1"
+          eType="#//Scenario/SystemMessage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
+          eType="#//Scenario/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preState" lowerBound="1"
+          eType="#//Scenario/State"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserActor" eSuperTypes="#//Scenario/Actor"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Behaviour"/>
+  </eSubpackages>
 </ecore:EPackage>
