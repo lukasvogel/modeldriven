@@ -14,8 +14,8 @@
       <genOperations ecoreOperation="synthesis.ecore#//Scenario/Scenario/project">
         <genParameters ecoreParameter="synthesis.ecore#//Scenario/Scenario/project/actor"/>
       </genOperations>
-      <genOperations ecoreOperation="synthesis.ecore#//Scenario/Scenario/behaviour">
-        <genParameters ecoreParameter="synthesis.ecore#//Scenario/Scenario/behaviour/actor"/>
+      <genOperations ecoreOperation="synthesis.ecore#//Scenario/Scenario/asBehaviour">
+        <genParameters ecoreParameter="synthesis.ecore#//Scenario/Scenario/asBehaviour/actor"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="synthesis.ecore#//Scenario/Actor"/>
@@ -63,6 +63,7 @@
             ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Message/sender"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Message/operation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Scenario/Message/return"/>
       </genClasses>
       <genClasses image="false" ecoreClass="synthesis.ecore#//Scenario/Communication">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Scenario/Communication/return"/>
@@ -74,8 +75,8 @@
         <genOperations ecoreOperation="synthesis.ecore#//Scenario/Scenario/project">
           <genParameters ecoreParameter="synthesis.ecore#//Scenario/Scenario/project/actor"/>
         </genOperations>
-        <genOperations ecoreOperation="synthesis.ecore#//Scenario/Scenario/behaviour">
-          <genParameters ecoreParameter="synthesis.ecore#//Scenario/Scenario/behaviour/actor"/>
+        <genOperations ecoreOperation="synthesis.ecore#//Scenario/Scenario/asBehaviour">
+          <genParameters ecoreParameter="synthesis.ecore#//Scenario/Scenario/asBehaviour/actor"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="synthesis.ecore#//Scenario/State"/>
@@ -102,7 +103,25 @@
             ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/SystemCommunication/preState"/>
       </genClasses>
       <genClasses ecoreClass="synthesis.ecore#//Scenario/UserActor"/>
-      <genClasses ecoreClass="synthesis.ecore#//Scenario/Behaviour"/>
+      <genClasses ecoreClass="synthesis.ecore#//Scenario/Behaviour">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Behaviour/blocks"/>
+      </genClasses>
+      <genClasses ecoreClass="synthesis.ecore#//Scenario/Activation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Activation/outMessages"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Scenario/Activation/return"/>
+      </genClasses>
+      <genClasses ecoreClass="synthesis.ecore#//Scenario/Block">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Block/preState"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Block/postState"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Block/inMessage"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference synthesis.ecore#//Scenario/Block/activation"/>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

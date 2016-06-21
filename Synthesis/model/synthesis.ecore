@@ -2,11 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="synthesis" nsURI="http://www.example.org/synthesis" nsPrefix="synthesis">
   <eSubpackages name="Scenario">
-    <eClassifiers xsi:type="ecore:EClass" name="Message">
+    <eClassifiers xsi:type="ecore:EClass" name="Message" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
           eType="#//Scenario/Actor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
           eType="#//Scenario/Operation"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="return" eType="#//Scenario/ReturnType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Communication" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="return" eType="#//Scenario/ReturnType"/>
@@ -19,7 +20,7 @@
       <eOperations name="project" eType="#//Scenario/Scenario">
         <eParameters name="actor" eType="#//Scenario/Actor"/>
       </eOperations>
-      <eOperations name="behaviour" eType="#//Scenario/Behaviour">
+      <eOperations name="asBehaviour" eType="#//Scenario/Behaviour">
         <eParameters name="actor" eType="#//Scenario/Actor"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
@@ -49,6 +50,24 @@
           eType="#//Scenario/State"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UserActor" eSuperTypes="#//Scenario/Actor"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Behaviour"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Behaviour">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
+          eType="#//Scenario/Block"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Activation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outMessages" upperBound="-1"
+          eType="#//Scenario/Message"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="return" eType="#//Scenario/ReturnType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Block">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preState" lowerBound="1"
+          eType="#//Scenario/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
+          eType="#//Scenario/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inMessage" lowerBound="1"
+          eType="#//Scenario/Operation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activation" lowerBound="1"
+          eType="#//Scenario/Activation"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
