@@ -3,7 +3,14 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="interactionMetamodel" nsURI="interactionMetamodel" nsPrefix="elite">
   <eClassifiers xsi:type="ecore:EClass" name="Lifeline"/>
   <eClassifiers xsi:type="ecore:EClass" name="Message"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" lowerBound="1"
+        eType="#//Lifeline"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionOccurenceSpecification"/>
   <eClassifiers xsi:type="ecore:EClass" name="StateInvariant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interaction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifelines" upperBound="-1"
+        eType="#//Lifeline"/>
+  </eClassifiers>
 </ecore:EPackage>

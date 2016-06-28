@@ -19,7 +19,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communications" upperBound="-1"
         eType="#//Communication"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommObject"/>
