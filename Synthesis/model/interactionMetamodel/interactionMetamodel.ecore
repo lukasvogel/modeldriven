@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="interactionMetamodel" nsURI="interactionMetamodel" nsPrefix="elite">
-  <eClassifiers xsi:type="ecore:EClass" name="Lifeline"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Message"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Lifeline">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
+        eType="#//Interaction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariants" upperBound="-1"
+        eType="#//StateInvariant"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendEvent" eType="#//MessageOccurenceSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiveEvent" eType="#//MessageOccurenceSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageSort" eType="#//MessageSort"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" lowerBound="1"
         eType="#//Lifeline"/>
@@ -10,7 +19,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionOccurenceSpecification"/>
   <eClassifiers xsi:type="ecore:EClass" name="StateInvariant"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interaction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lifelines" upperBound="-1"
-        eType="#//Lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
+        eType="#//Message"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MessageSort">
+    <eLiterals name="synchCall"/>
+    <eLiterals name="asynchCall" value="1"/>
+    <eLiterals name="reply" value="2"/>
   </eClassifiers>
 </ecore:EPackage>
