@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Synthesis/src" modelPluginID="Synthesis" modelName="InteractionMetamodel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>interactionMetamodel.ecore</foreignModel>
+  <genPackages prefix="InteractionMetamodel" disposableProviderFactory="true" ecorePackage="interactionMetamodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="interactionMetamodel.ecore#//MessageSort">
+      <genEnumLiterals ecoreEnumLiteral="interactionMetamodel.ecore#//MessageSort/synchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="interactionMetamodel.ecore#//MessageSort/asynchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="interactionMetamodel.ecore#//MessageSort/reply"/>
+    </genEnums>
+    <genClasses ecoreClass="interactionMetamodel.ecore#//Lifeline">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionMetamodel.ecore#//Lifeline/interactions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionMetamodel.ecore#//Lifeline/invariants"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionMetamodel.ecore#//Message">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionMetamodel.ecore#//Message/sendEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionMetamodel.ecore#//Message/receiveEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute interactionMetamodel.ecore#//Message/messageSort"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionMetamodel.ecore#//MessageOccurenceSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionMetamodel.ecore#//MessageOccurenceSpecification/lifeline"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionMetamodel.ecore#//ExecutionOccurenceSpecification"/>
+    <genClasses ecoreClass="interactionMetamodel.ecore#//StateInvariant"/>
+    <genClasses ecoreClass="interactionMetamodel.ecore#//Interaction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionMetamodel.ecore#//Interaction/messages"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

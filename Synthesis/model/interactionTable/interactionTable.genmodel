@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Synthesis/src" modelPluginID="Synthesis" modelName="InteractionTable"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>interactionTable.ecore</foreignModel>
+  <genPackages prefix="InteractionTable" disposableProviderFactory="true" ecorePackage="interactionTable.ecore#/">
+    <genClasses ecoreClass="interactionTable.ecore#//Communication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute interactionTable.ecore#//Communication/return"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionTable.ecore#//UserCommunication">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionTable.ecore#//UserCommunication/message"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionTable.ecore#//State"/>
+    <genClasses ecoreClass="interactionTable.ecore#//SystemCommunication">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionTable.ecore#//SystemCommunication/message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionTable.ecore#//SystemCommunication/postState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionTable.ecore#//SystemCommunication/preState"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionTable.ecore#//Operation"/>
+    <genClasses ecoreClass="interactionTable.ecore#//Scenario">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionTable.ecore#//Scenario/communications"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionTable.ecore#//CommObject"/>
+    <genClasses image="false" ecoreClass="interactionTable.ecore#//Message">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionTable.ecore#//Message/operation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interactionTable.ecore#//Message/sender"/>
+    </genClasses>
+    <genClasses ecoreClass="interactionTable.ecore#//UserMessage"/>
+    <genClasses ecoreClass="interactionTable.ecore#//SystemMessage"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated interactionMetamodel -->
+      <package
+            uri="interactionMetamodel"
+            class="interactionMetamodel.InteractionMetamodelPackage"
+            genModel="model/interactionMetamodel/interactionMetamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated interactionTable -->
+      <package
+            uri="interactionTable"
+            class="interactionTable.InteractionTablePackage"
+            genModel="model/interactionTable/interactionTable.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated behaviourTable -->
+      <package
+            uri="behaviourTable"
+            class="behaviourTable.BehaviourTablePackage"
+            genModel="model/behaviourTable/behaviourTable.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated IOAutomaton -->
+      <package
+            uri="ioAutomaton"
+            class="ioAutomaton.IoAutomatonPackage"
+            genModel="model/ioAutomaton/IOAutomaton.genmodel"/>
+   </extension>
+
+</plugin>

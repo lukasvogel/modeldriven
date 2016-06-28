@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Synthesis/src" modelPluginID="Synthesis" modelName="BehaviourTable"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../interactionTable/interactionTable.genmodel#//interactionTable"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>behaviourTable.ecore</foreignModel>
+  <genPackages prefix="BehaviourTable" disposableProviderFactory="true" ecorePackage="behaviourTable.ecore#/">
+    <genClasses ecoreClass="behaviourTable.ecore#//Behaviour">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//Behaviour/preState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//Behaviour/postState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//Behaviour/inMessage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//Behaviour/activation"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviourTable.ecore#//BehaviourTable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//BehaviourTable/behaviours"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviourTable.ecore#//OutMessage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//OutMessage/operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviourTable.ecore#//OutMessage/return"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//OutMessage/object"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviourTable.ecore#//Activation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviourTable.ecore#//Activation/return"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviourTable.ecore#//Activation/outMessages"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
