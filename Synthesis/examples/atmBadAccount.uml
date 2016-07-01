@@ -22,7 +22,12 @@
     <fragment xmi:type="uml:StateInvariant" xmi:id="__7wr8D1XEeaMysJ469gzTA" name="WaitVerify">
       <covered xmi:type="uml:Lifeline" href="atmBadPassword.uml#_bI2oAD1bEeaMysJ469gzTA"/>
       <covered xmi:type="uml:Lifeline" href="#_xedU4D1XEeaMysJ469gzTA"/>
-      <invariant xmi:type="uml:Constraint" xmi:id="__7wr8T1XEeaMysJ469gzTA" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="__7wr8T1XEeaMysJ469gzTA" name="waitVerify">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_MAbusD7MEeasd56j10s4Kw" name="waitVerify">
+          <language>OCL</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_COsX4D1YEeaMysJ469gzTA" name="WaitBankVerify" covered="_yeufED1XEeaMysJ469gzTA">
       <invariant xmi:type="uml:Constraint" xmi:id="_COs-8D1YEeaMysJ469gzTA" name=""/>

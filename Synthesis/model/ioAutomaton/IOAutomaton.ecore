@@ -7,8 +7,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="in" upperBound="-1" eType="ecore:EClass ../interactionTable/interactionTable.ecore#//Operation"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
-        eType="ecore:EClass ../interactionTable/interactionTable.ecore#//State" derived="true"/>
+        eType="ecore:EClass ../interactionTable/interactionTable.ecore#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
-        eType="ecore:EClass ../behaviourTable/behaviourTable.ecore#//Behaviour"/>
+        eType="ecore:EClass ../behaviourTable/behaviourTable.ecore#//Behaviour" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

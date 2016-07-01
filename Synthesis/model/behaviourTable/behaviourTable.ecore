@@ -7,9 +7,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
         eType="ecore:EClass ../interactionTable/interactionTable.ecore#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inMessage" lowerBound="1"
-        eType="ecore:EClass ../interactionTable/interactionTable.ecore#//Operation"/>
+        eType="ecore:EClass ../interactionTable/interactionTable.ecore#//Operation"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activation" lowerBound="1"
-        eType="#//Activation"/>
+        eType="#//Activation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BehaviourTable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
