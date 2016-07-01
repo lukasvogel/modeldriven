@@ -1,0 +1,13 @@
+modeltype SequenceDiagram uses 'interactionMetamodel';
+modeltype InteractionTable uses 'interactionTable';
+
+transformation sequenceDiagramToTable(in seqDiagram : SequenceDiagram, out interactionTable : InteractionTable);
+
+main() {
+	seqDiagram.objectsOfType(Interaction).map transformInteraction();
+}
+
+
+mapping Interaction::transformInteraction() : Scenario {
+	
+}
