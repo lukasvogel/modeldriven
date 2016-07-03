@@ -9,5 +9,32 @@ main() {
 
 
 mapping Interaction::transformInteraction() : Scenario {
+	communications += self.messages.map transformMessage();
 	
 }
+
+mapping Message::transformMessage() : Communication
+	disjuncts 
+		Message::transformMessageToSysCom,
+		Message::transformMessageToUserCom;
+		
+
+mapping Message::transformMessageToSysCom() : SystemCommunication 
+	when {
+		self.messageSort = MessageSort::synchCall
+	}{
+	
+}
+
+mapping Message::transformMessageToUserCom() : UserCommunication
+	when {
+		self.messageSort = MessageSort::asynchCall
+	} {
+	
+	message := object UserMessage {
+		
+	}
+		
+}
+
+
