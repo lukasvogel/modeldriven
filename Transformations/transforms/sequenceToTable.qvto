@@ -23,6 +23,21 @@ mapping Message::transformMessageToSysCom() : SystemCommunication
 	when {
 		self.messageSort = MessageSort::synchCall
 	}{
+	message := self.transformToCommMessage();
+	
+	var recvObject = self.receiveEvent.lifeline;
+	var recvOccSpecs = recvObject.occurencespecifications;
+	var myIdx = recvOccSpecs->indexOf(recvOccSpecs->select(o | o.oclIsKindOf(MessageOccurenceSpecification) and o.oclAsType(MessageOccurenceSpecification).message = self));
+	
+	returnType := recvOccSpecs->at(myIdx + 1).oclAsType(MessageOccurenceSpecification).message.name;
+	
+	preState := object State {
+		name := recvOccSpecs->at(myIdx - 1).oclAsType(StateInvariant).name;
+	};
+	
+	postState := object State {
+		name := recvOccSpecs->at(myIdx + 2).oclAsType(StateInvariant).name;
+	}
 	
 }
 
@@ -31,10 +46,28 @@ mapping Message::transformMessageToUserCom() : UserCommunication
 		self.messageSort = MessageSort::asynchCall
 	} {
 	
-	message := object UserMessage {
+	message := self.transformToCommMessage();
+	returnType := "void";
+}
+
+
+helper Message::transformToCommMessage() : CommMessage {
+	
+	var msg := object CommMessage {
+		sender := object CommObject {
+			name := self.sendEvent.lifeline.name
+		};
 		
-	}
+		receiver := object CommObject {
+			name := self.receiveEvent.lifeline.name
+		};
 		
+		operation := object Operation {
+			name := self.name
+		};		
+	};
+	
+	return msg;
 }
 
 
