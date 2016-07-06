@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jaaLUD1XEeaMysJ469gzTA" type="PapyrusUMLSequenceDiagram" name="Sequence Diagram" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jaaLUD1XEeaMysJ469gzTA" type="PapyrusUMLSequenceDiagram" name="Sequence Diagram" measurementUnit="Pixel">
   <children xmi:type="notation:Shape" xmi:id="_jaaLUT1XEeaMysJ469gzTA" type="Interaction_Shape">
     <children xmi:type="notation:DecorationNode" xmi:id="_jaaLUj1XEeaMysJ469gzTA" type="Interaction_NameLabel"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_jaaLUz1XEeaMysJ469gzTA" type="Interaction_SubfragmentCompartment">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-TXZcEL3EeaPg4ImLhexlA" source="PapyrusCSSForceValue">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-TXZcUL3EeaPg4ImLhexlA" key="canonical" value="true"/>
+      </eAnnotations>
       <children xmi:type="notation:Shape" xmi:id="_vWs-MD1XEeaMysJ469gzTA" type="Lifeline_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_vWtlQD1XEeaMysJ469gzTA" type="Lifeline_NameLabel"/>
         <children xmi:type="notation:BasicCompartment" xmi:id="_vYUu0D1XEeaMysJ469gzTA" type="compartment_shape_display">
@@ -118,6 +121,7 @@
         <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_H46IsD1YEeaMysJ469gzTA"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_H5A2YT1YEeaMysJ469gzTA" x="17" y="10" width="100" height="699"/>
       </children>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_-TU9MEL3EeaPg4ImLhexlA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jaaLVD1XEeaMysJ469gzTA"/>
     </children>
     <element xmi:type="uml:Interaction" href="atmBadAccount.uml#_jZ5N8D1XEeaMysJ469gzTA"/>

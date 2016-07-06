@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore">
+  <elite:CommObject name="user"/>
+  <elite:CommObject name="atm"/>
+  <elite:CommObject name="consortium"/>
+  <elite:CommObject name="bank"/>
+  <uml:State name="WaitVerify"/>
+  <uml:State name="WaitBankVerify"/>
+  <uml:State name="WaitTakeCard"/>
+  <uml:State name="WaitBankVerify"/>
+  <uml:State name="WaitVerify"/>
+  <uml:State name="WaitCard"/>
+  <uml:State name="WaitPassword"/>
+  <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="cancel"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="verifyAccount"/>
+  <elite:Operation name="cancel"/>
+  <elite:Scenario communications="/36 /40 /24 /32 /26 /28 /30 /34 /38 /22"/>
+  <elite:SystemCommunication message="/23"/>
+  <elite:CommMessage operation="/19" sender="/1" receiver="/2"/>
+  <elite:UserCommunication returnType="void" message="/25"/>
+  <elite:CommMessage operation="/15" sender="/0" receiver="/1"/>
+  <elite:UserCommunication returnType="void" message="/27"/>
+  <elite:CommMessage operation="/20" sender="/0" receiver="/1"/>
+  <elite:SystemCommunication returnType="requestPassword" message="/29"/>
+  <elite:CommMessage operation="/13" sender="/0" receiver="/1"/>
+  <elite:SystemCommunication returnType="verifyAccount" message="/31"/>
+  <elite:CommMessage operation="/14" sender="/0" receiver="/1"/>
+  <elite:UserCommunication returnType="void" message="/33"/>
+  <elite:CommMessage operation="/12" sender="/1" receiver="/0"/>
+  <elite:UserCommunication returnType="void" message="/35"/>
+  <elite:CommMessage operation="/17" sender="/1" receiver="/0"/>
+  <elite:UserCommunication returnType="void" message="/37"/>
+  <elite:CommMessage operation="/11" sender="/1" receiver="/0"/>
+  <elite:UserCommunication returnType="void" message="/39"/>
+  <elite:CommMessage operation="/16" sender="/1" receiver="/0"/>
+  <elite:SystemCommunication returnType=":badBankPassword" message="/41"/>
+  <elite:CommMessage operation="/18" sender="/2" receiver="/3"/>
+</xmi:XMI>
