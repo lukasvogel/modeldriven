@@ -6,8 +6,9 @@ transformation sequenceDiagramToTable(in seqDiagram : SequenceDiagram, out inter
 property knownStates : Set(InteractionTable::State);
 
 main() {
-	seqDiagram.objectsOfKind(Lifeline).map transformLifeline();
+	
 	seqDiagram.objectsOfKind(StateInvariant).map transformeStateInvariant();
+	seqDiagram.objectsOfKind(Lifeline).map transformLifeline();
 	// don't transform the replies as they indicate the return type and no operation
 	seqDiagram.objectsOfKind(Message)->select(m | m.messageSort != MessageSort::reply).map transformMessage();
 	seqDiagram.objectsOfKind(Interaction).map transformInteraction();
@@ -15,16 +16,21 @@ main() {
 
 
 mapping Interaction::transformInteraction() : Scenario {
-	communications += seqDiagram.objectsOfKind(Lifeline)->coveredBy.map transformLifelineContents();
+	communications += seqDiagram.objectsOfKind(ExecutionSpecification).map transformExecSpec();
+	communications += seqDiagram.objectsOfKind(MessageOccurrenceSpecification).map transformMsgOccToUser();
 }
 
 mapping StateInvariant::transformeStateInvariant() : InteractionTable::State 
 	when {
-		knownStates->select(s | s.name = self.name)->isEmpty();
+		knownStates->select(s | s.name = self.name.substringAfter("_"))->isEmpty();
 	}{
-	name := self.name;
+	name := self.name.substringAfter("_");
 	knownStates := knownStates->including(result);
 } 
+
+helper StateInvariant::getState() : InteractionTable::State {
+	return knownStates->select(s  | s.name = self.name.substringAfter("_"))->any(true);
+}
 
 mapping Lifeline::transformLifeline() : CommObject {
 	name := self.name;
@@ -35,55 +41,57 @@ mapping Message::transformMessage() : InteractionTable::Operation {
 	name := self.name;
 }
 
-
-mapping Set(InteractionFragment)::transformLifelineContents(): Set(InteractionTable::Communication) {
-	init {
-		result := Set{};
-		result += self[MessageOccurrenceSpecification]->select(o | self->includes(o.message.receiveEvent)).map transformMsgOcc();
-	}
-
+mapping ExecutionSpecification::transformExecSpec() : InteractionTable::SystemCommunication 
+	when {		
+		self.start.oclIsKindOf(MessageOccurrenceSpecification);
+		self.finish.oclIsKindOf(MessageOccurrenceSpecification);
+	}{
+	
+	var invariantsOnLifeline := self.covered->any(true).coveredBy[StateInvariant];
+	
+	var returnType := "void";
+	
+	if (self.finish.oclAsType(MessageOccurrenceSpecification).message.messageSort = MessageSort::reply) {
+		returnType := self.finish.oclAsType(MessageOccurrenceSpecification).message.name;
+	};
+	
+	var myIdx := self.name.substringBefore("_").asInteger();
+		
+	var preState := invariantsOnLifeline->select(i | i.name.substringBefore("_").asInteger() < myIdx)->sortedBy(i | i.name.substringBefore("_").asInteger())->last();
+	var postState := invariantsOnLifeline->select(i | i.name.substringBefore("_").asInteger() > myIdx)->sortedBy(i | i.name.substringBefore("_").asInteger())->first();
+	
+	
+	result.preState := preState.getState();
+	result.postState := postState.getState();
+	result.returnType := returnType;
+	result.message := self.start.oclAsType(MessageOccurrenceSpecification).transformToMessage();
+	
+	log("----SYSTEM COMMUNICATION----");
+	log(result.message.sender.name + " -> " + result.message.receiver.name);	
+	log("operation: " + result.message.operation.name);
+	log("result: " + returnType);
+	log("state before: " + result.preState.name);
+	log("state after: " + result.postState.name);
+	log("");
 }
 
-mapping OccurrenceSpecification::transformMsgOcc() : InteractionTable::Communication
-	disjuncts
-		MessageOccurrenceSpecification::transformMsgOccToSys,
-		MessageOccurrenceSpecification::transformMsgOccToUser;	
-
-
-mapping MessageOccurrenceSpecification::transformMsgOccToSys() : SystemCommunication
-	when {
-		self.message.messageSort = MessageSort::synchCall
-	} {
-	
-	var recvOccSpecs := self.enclosingInteraction.fragment->select(f |  f.covered->includes(self.covered->any(true)));
-	
-	var myIdx := recvOccSpecs->indexOf(self); 
-	
-	returnType := recvOccSpecs->subOrderedSet(myIdx+1,recvOccSpecs->size())[MessageOccurrenceSpecification]->first().message.name;
-		
-		
-	
-	var statesBefore := recvOccSpecs->subOrderedSet(1,myIdx-1)[StateInvariant];
-	var statesAfter := recvOccSpecs->subOrderedSet(myIdx+1,recvOccSpecs->size())[StateInvariant];
-	
-	log("");	
-	log("operation: " + self.message.name);
-	log("states: " + recvOccSpecs[StateInvariant]->size().toString());
-	log("state before (" + statesBefore->size().toString() + "): " + statesBefore->last().name);
-	log("state after (" + statesAfter->size().toString() + "): " + statesAfter->first().name);
-	
-	preState := statesBefore->last().resolveone(InteractionTable::State);
-	postState := statesAfter->first().resolveone(InteractionTable::State);	
-
-	message := self.transformToMessage();
-}
 
 mapping MessageOccurrenceSpecification::transformMsgOccToUser() : UserCommunication
 	when {
-		self.message.messageSort = MessageSort::asynchCall
+		self.message.messageSort = MessageSort::asynchCall;
+		self.message.receiveEvent = self;
 	}{
+	
 	returnType := 'void';
 	message := self.transformToMessage();
+	
+	log("----USER COMMUNICATION----");	
+	log(result.message.sender.name + " -> " + result.message.receiver.name);
+	log("operation: " + result.message.operation.name);
+	log(self.message.name);
+	log("result: " + returnType);
+	log("");
+	
 }
 
 
@@ -99,12 +107,9 @@ helper Message::getSender() : Lifeline {
 
 helper MessageOccurrenceSpecification::transformToMessage() : CommMessage {
 	var message := object CommMessage {
-	
 		sender := self.message.getSender().resolveone(CommObject);
 		receiver := self.message.getReceiver().resolveone(CommObject);
 		operation := self.message.resolveone(InteractionTable::Operation);
-
 	};
-	
 	return message;
 }
