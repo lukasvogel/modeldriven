@@ -3,6 +3,8 @@ modeltype InteractionTable uses 'interactionTable';
 
 transformation sequenceDiagramToTable(in seqDiagram : SequenceDiagram, out interactionTable : InteractionTable);
 
+property knownStates : Set(InteractionTable::State);
+
 main() {
 	seqDiagram.objectsOfKind(Lifeline).map transformLifeline();
 	seqDiagram.objectsOfKind(StateInvariant).map transformeStateInvariant();
@@ -11,12 +13,17 @@ main() {
 	seqDiagram.objectsOfKind(Interaction).map transformInteraction();
 }
 
+
 mapping Interaction::transformInteraction() : Scenario {
 	communications += seqDiagram.objectsOfKind(Lifeline)->coveredBy.map transformLifelineContents();
 }
 
-mapping StateInvariant::transformeStateInvariant() : State {
+mapping StateInvariant::transformeStateInvariant() : InteractionTable::State 
+	when {
+		knownStates->select(s | s.name = self.name)->isEmpty();
+	}{
 	name := self.name;
+	knownStates := knownStates->including(result);
 } 
 
 mapping Lifeline::transformLifeline() : CommObject {
