@@ -5,7 +5,7 @@
     <context>
       <context name="self" type="StateInvariant">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_PqIjkEROEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_O2XkUEROEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -23,7 +23,7 @@
     <context>
       <context name="self" type="StateInvariant">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_GilJMEROEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_NugkYEROEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -41,7 +41,7 @@
     <context>
       <context name="self" type="StateInvariant">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_Mm9GcEROEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_GilJMEROEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -149,7 +149,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_3MkBcERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_crR7IERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -167,7 +167,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_crR7IERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_rS2ogERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -185,7 +185,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_6Rr_UERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_-HArEERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -203,7 +203,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_rS2ogERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_lmMAoERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -221,7 +221,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_ASBKEEROEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_3MkBcERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -239,7 +239,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_lmMAoERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_aI5d8ERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -257,7 +257,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_aI5d8ERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_ASBKEEROEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -275,7 +275,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_-HArEERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_6Rr_UERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -307,119 +307,11 @@
     </result>
   </traceRecords>
   <traceRecords>
-    <mappingOperation name="transformExecSpec" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="ExecutionSpecification">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_lzv7gERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="SystemCommunication">
-        <value>
-          <modelElement href="interactionTable#/17"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="InteractionFragment">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_lzv7gERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="Communication">
-        <value>
-          <modelElement href="interactionTable#/17"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="transformExecSpec" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="ExecutionSpecification">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_rd-6cERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="SystemCommunication">
-        <value>
-          <modelElement href="interactionTable#/18"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="InteractionFragment">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_rd-6cERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="Communication">
-        <value>
-          <modelElement href="interactionTable#/18"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="transformMsgOccToUser" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
+    <mappingOperation name="transformMsgOccToSys" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
     <context>
       <context name="self" type="MessageOccurrenceSpecification">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_crTJQERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="UserCommunication">
-        <value>
-          <modelElement href="interactionTable#/19"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="InteractionFragment">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_crTJQERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="Communication">
-        <value>
-          <modelElement href="interactionTable#/19"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="transformExecSpec" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="ExecutionSpecification">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_3U2awERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_rS3PkURNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
@@ -427,97 +319,7 @@
     <result>
       <result kind="OUT" name="result" type="SystemCommunication">
         <value>
-          <modelElement href="interactionTable#/20"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="InteractionFragment">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_3U2awERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="Communication">
-        <value>
-          <modelElement href="interactionTable#/20"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="transformMsgOccToUser" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="MessageOccurrenceSpecification">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_-HB5MERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="UserCommunication">
-        <value>
-          <modelElement href="interactionTable#/21"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="InteractionFragment">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_-HB5MERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="Communication">
-        <value>
-          <modelElement href="interactionTable#/21"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="transformExecSpec" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="ExecutionSpecification">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_XrlG8ERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="SystemCommunication">
-        <value>
-          <modelElement href="interactionTable#/22"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
-    <context>
-      <context name="self" type="InteractionFragment">
-        <value>
-          <modelElement href="examples/atmBadPassword.uml#_XrlG8ERNEeaw04hdZMy23Q"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="Communication">
-        <value>
-          <modelElement href="interactionTable#/22"/>
+          <modelElement href="interactionTable#/16/@communications.0"/>
         </value>
       </result>
     </result>
@@ -535,25 +337,25 @@
     <result>
       <result kind="OUT" name="result" type="UserCommunication">
         <value>
-          <modelElement href="interactionTable#/23"/>
+          <modelElement href="interactionTable#/16/@communications.1"/>
         </value>
       </result>
     </result>
   </traceRecords>
   <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
+    <mappingOperation name="transformMsgOccToUser" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
     <context>
-      <context name="self" type="InteractionFragment">
+      <context name="self" type="MessageOccurrenceSpecification">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_6RubkERNEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_-HB5MERNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
     <parameters/>
     <result>
-      <result kind="OUT" name="result" type="Communication">
+      <result kind="OUT" name="result" type="UserCommunication">
         <value>
-          <modelElement href="interactionTable#/23"/>
+          <modelElement href="interactionTable#/16/@communications.2"/>
         </value>
       </result>
     </result>
@@ -571,25 +373,79 @@
     <result>
       <result kind="OUT" name="result" type="UserCommunication">
         <value>
-          <modelElement href="interactionTable#/24"/>
+          <modelElement href="interactionTable#/16/@communications.3"/>
         </value>
       </result>
     </result>
   </traceRecords>
   <traceRecords>
-    <mappingOperation name="tranformInteractionFragment" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
+    <mappingOperation name="transformMsgOccToSys" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
     <context>
-      <context name="self" type="InteractionFragment">
+      <context name="self" type="MessageOccurrenceSpecification">
         <value>
-          <modelElement href="examples/atmBadPassword.uml#_ASCYMUROEeaw04hdZMy23Q"/>
+          <modelElement href="examples/atmBadPassword.uml#_3MlPkURNEeaw04hdZMy23Q"/>
         </value>
       </context>
     </context>
     <parameters/>
     <result>
-      <result kind="OUT" name="result" type="Communication">
+      <result kind="OUT" name="result" type="SystemCommunication">
         <value>
-          <modelElement href="interactionTable#/24"/>
+          <modelElement href="interactionTable#/16/@communications.4"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformMsgOccToSys" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="examples/atmBadPassword.uml#_lmMnsURNEeaw04hdZMy23Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="SystemCommunication">
+        <value>
+          <modelElement href="interactionTable#/16/@communications.5"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformMsgOccToUser" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="examples/atmBadPassword.uml#_crTJQERNEeaw04hdZMy23Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="UserCommunication">
+        <value>
+          <modelElement href="interactionTable#/16/@communications.6"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformMsgOccToSys" package="sequenceDiagramToTable" module="sequenceDiagramToTable"/>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="examples/atmBadPassword.uml#_aI7TIERNEeaw04hdZMy23Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="SystemCommunication">
+        <value>
+          <modelElement href="interactionTable#/16/@communications.7"/>
         </value>
       </result>
     </result>

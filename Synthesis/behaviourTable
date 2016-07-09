@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xmlns:elite_1="behaviourTable" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore behaviourTable model/behaviourTable/behaviourTable.ecore">
   <elite:Operation name="requestPassword"/>
-  <elite:Operation name="canceledMessage"/>
-  <elite:Operation name="requestTakeCard"/>
   <elite:Operation name="ejectCard"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="canceledMessage"/>
   <elite:State name="WaitBankVerify"/>
-  <elite:State name="WaitPassword"/>
   <elite:State name="WaitVerify"/>
+  <elite:State name="WaitPassword"/>
   <elite:State name="WaitTakeCard"/>
-  <elite_1:BehaviourTable behaviours="/12 /9 /10 /11"/>
+  <elite_1:BehaviourTable behaviours="/10 /9 /16 /12"/>
   <elite_1:Behaviour preState="/4" postState="/4">
     <inMessage name="verifyCardWithBank"/>
     <activation returnType=":badBankPassword"/>
   </elite_1:Behaviour>
-  <elite_1:Behaviour preState="/5" postState="/7">
-    <inMessage name="cancel"/>
-    <activation returnType="void"/>
-  </elite_1:Behaviour>
   <elite_1:Behaviour preState="/5" postState="/5">
-    <inMessage name="enterPassword"/>
-    <activation returnType="void"/>
-  </elite_1:Behaviour>
-  <elite_1:Behaviour preState="/6" postState="/6">
     <inMessage name="verifyAccount"/>
-    <activation returnType=":badPassword" outMessages="/13"/>
+    <activation returnType=":badPassword" outMessages="/11"/>
   </elite_1:Behaviour>
   <elite_1:OutMessage operation="/9/@inMessage" returnType=":badBankPassword">
     <recvObject href="interactionTable#/7"/>
+  </elite_1:OutMessage>
+  <elite_1:Behaviour preState="/6" postState="/7">
+    <inMessage name="cancel"/>
+    <activation returnType="void" outMessages="/13 /14 /15"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="/3" returnType="void">
+    <recvObject href="interactionTable#/4"/>
+  </elite_1:OutMessage>
+  <elite_1:OutMessage operation="/1" returnType="void">
+    <recvObject href="interactionTable#/4"/>
+  </elite_1:OutMessage>
+  <elite_1:OutMessage operation="/2" returnType="void">
+    <recvObject href="interactionTable#/4"/>
+  </elite_1:OutMessage>
+  <elite_1:Behaviour preState="/6" postState="/6">
+    <inMessage name="enterPassword"/>
+    <activation returnType="void" outMessages="/17 /18"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="/10/@inMessage" returnType=":badPassword">
+    <recvObject href="interactionTable#/6"/>
+  </elite_1:OutMessage>
+  <elite_1:OutMessage operation="/0" returnType="void">
+    <recvObject href="interactionTable#/4"/>
   </elite_1:OutMessage>
 </xmi:XMI>

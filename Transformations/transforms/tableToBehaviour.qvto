@@ -51,11 +51,9 @@ mapping Communication::transformCommunicationToBeh(in obj : CommObject, in scena
 	log("inMessage: " + result.inMessage.name);
 	log("");
 	
-	// we then get all subsequent messages we sent
-	var msgSent := self.sentAfterReceive(scenario);
 		
 	activation := object Activation {
-		outMessages := msgSent.map transformCommunicationToOutMsg();
+		outMessages := self.covers.map transformCommunicationToOutMsg();
 		returnType := self.returnType;
 	};
 	
@@ -77,23 +75,4 @@ mapping Communication::transformCommunicationToOutMsg() : OutMessage {
 	log("\t return: " + result.returnType);
 	log("");
 	
-}
-
-helper Communication::sentAfterReceive(in scenario : Scenario) : Set(Communication) {
-	
-	var communications := scenario.communications;
-	
-	// start is when we get the message
-	var myIdx := communications->indexOf(self);
-	
-	// end is just before we return a message to our caller
-	// TODO: is this semantically okay?
-	var nextReceiving := communications->subOrderedSet(myIdx+1,communications->size())
-					->select(c | c.message.receiver = self.message.sender)->first();
-	
-	var lastIdx := communications->size().min(communications->indexOf(nextReceiving) - 2);
-	
-	// all communications that my receiver sent after receiving me
-	// and that happend before the next state is declared (i.e. in one activation)
-	return scenario.communications->subOrderedSet(myIdx+1,lastIdx);
 }
