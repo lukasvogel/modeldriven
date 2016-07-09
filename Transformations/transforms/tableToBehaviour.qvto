@@ -10,7 +10,7 @@ main() {
 	
 
 	var scenario := iTable.objectsOfKind(Scenario)->any(true);
-	scenario.map transformToTable();	
+	scenario.map transformToTableSet();	
 }
 
 mapping Operation::transformOperation() : Operation {
@@ -22,16 +22,20 @@ mapping State::transformState() : State {
 }
 
 
-mapping Scenario::transformToTable() : BehaviourTable::BehaviourTable {
+mapping Scenario::transformToTableSet() : Set(BehaviourTable::BehaviourTable) {
 
 	// get all objects in the scenario
 	var objs := self.communications->message.receiver->asSet();
 	
-	var behaviours := objs->collect( o | 
-								self.communications->select(c | c.message.receiver = o).map transformCommunicationToBeh(o, self));
+	objs->collect(o | self.transformToTable(o))->asSet();
 	
-	result.behaviours += behaviours->flatten();
 	
+}
+
+helper Scenario::transformToTable(in sysObj : CommObject) : BehaviourTable::BehaviourTable {
+	return object BehaviourTable::BehaviourTable {
+		behaviours := self.communications->select(c | c.message.receiver = sysObj).map transformCommunicationToBeh(sysObj, self);
+	};
 }
 
 mapping Communication::transformCommunicationToBeh(in obj : CommObject, in scenario : Scenario) : Behaviour
@@ -59,7 +63,6 @@ mapping Communication::transformCommunicationToBeh(in obj : CommObject, in scena
 	
 	log("return : " + result.activation.returnType);
 	log("postState: " + result.postState.name);
-	
 	log("");
 	
 	

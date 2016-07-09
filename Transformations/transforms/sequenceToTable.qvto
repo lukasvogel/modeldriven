@@ -29,8 +29,9 @@ mapping Interaction::transformInteraction() : Scenario {
 			var curFrag := remaining->any(true);		
 			
 			var dependencies := curFrag.getEnclosedOccs()->select(oc | oc.message.messageSort = MessageSort::synchCall).getReceivingExecSpec();
-						
-						
+			
+			
+									
 			if (not resolvedExecSpecs->includes(curFrag) and resolvedExecSpecs->includesAll(dependencies)) {
 				communications += curFrag.getEnclosedOccs()->select(oc | oc.message.messageSort = MessageSort::asynchCall).map transformMsgOccToUser();
 				communications += curFrag.start.oclAsType(MessageOccurrenceSpecification).map transformMsgOccToSys();
@@ -119,16 +120,16 @@ helper ExecutionSpecification::getEnclosedOccs() : OrderedSet(MessageOccurrenceS
 	var msgOccs := self.enclosingInteraction.fragment[MessageOccurrenceSpecification]->select(m | m.message.getSender() = self.covered->any(true) or 
 																								   m.message.messageSort != MessageSort::reply and m.message.getReceiver() = self.covered->any(true));
 	var startIdx := msgOccs->indexOf(self.start);
+		
+	var endIdx := msgOccs->indexOf(msgOccs->subOrderedSet(startIdx+1,msgOccs->size())->select(m | m.message.getReceiver() = self.covered->any(true))->first());
 	
-	var len := msgOccs->indexOf(msgOccs->subOrderedSet(startIdx+1,msgOccs->size())->select(m | m.message.getReceiver() = self.covered->any(true))->first());
 	
-	
-	if (len.oclIsInvalid()) {
+	if (endIdx.oclIsInvalid()) {
 		//there was no subsequent call...	
-		len := msgOccs->size() - startIdx ;
+		endIdx := msgOccs->size();
 	};
-
-	return msgOccs->subOrderedSet(startIdx+1,startIdx+len)->select(m | 
+							
+	return msgOccs->subOrderedSet(startIdx+1,endIdx)->select(m | 
 						m.message.getSender() = self.covered->any(true) and
 						m.message.messageSort != MessageSort::reply);
 	

@@ -1,259 +1,325 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jaaLUD1XEeaMysJ469gzTA" type="PapyrusUMLSequenceDiagram" name="Sequence Diagram" measurementUnit="Pixel">
-  <children xmi:type="notation:Shape" xmi:id="_jaaLUT1XEeaMysJ469gzTA" type="Interaction_Shape">
-    <children xmi:type="notation:DecorationNode" xmi:id="_jaaLUj1XEeaMysJ469gzTA" type="Interaction_NameLabel"/>
-    <children xmi:type="notation:BasicCompartment" xmi:id="_jaaLUz1XEeaMysJ469gzTA" type="Interaction_SubfragmentCompartment">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-TXZcEL3EeaPg4ImLhexlA" source="PapyrusCSSForceValue">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-TXZcUL3EeaPg4ImLhexlA" key="canonical" value="true"/>
-      </eAnnotations>
-      <children xmi:type="notation:Shape" xmi:id="_vWs-MD1XEeaMysJ469gzTA" type="Lifeline_Shape">
-        <children xmi:type="notation:DecorationNode" xmi:id="_vWtlQD1XEeaMysJ469gzTA" type="Lifeline_NameLabel"/>
-        <children xmi:type="notation:BasicCompartment" xmi:id="_vYUu0D1XEeaMysJ469gzTA" type="compartment_shape_display">
-          <styles xmi:type="notation:TitleStyle" xmi:id="_vYUu0T1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vYUu0j1XEeaMysJ469gzTA"/>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_QZD0EEXYEeaLo5vtPVuNtw" type="PapyrusUMLSequenceDiagram" name="Sequence Diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_QZD0EUXYEeaLo5vtPVuNtw" type="Interaction_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QZD0EkXYEeaLo5vtPVuNtw" type="Interaction_NameLabel"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QZD0E0XYEeaLo5vtPVuNtw" type="Interaction_SubfragmentCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_flgwIEXYEeaLo5vtPVuNtw" type="Lifeline_Shape">
+        <children xmi:type="notation:DecorationNode" xmi:id="_flgwIkXYEeaLo5vtPVuNtw" type="Lifeline_NameLabel"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_flkagEXYEeaLo5vtPVuNtw" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_flkagUXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_flkagkXYEeaLo5vtPVuNtw"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_0JTKgD1XEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="_0JTKgj1XEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="_0JTKgz1XEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_0JNq8D1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0JTKgT1XEeaMysJ469gzTA" x="251" y="59"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_6HHMwD1XEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="_6HHz0D1XEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="_6HHz0T1XEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_6HBGID1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6HHMwT1XEeaMysJ469gzTA" x="251" y="173"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_7Vd2QD1XEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="_7Vd2Qj1XEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="_7VedUD1XEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_7VY9wD1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Vd2QT1XEeaMysJ469gzTA" x="251" y="441"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_8WoYUD1XEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="_8Wo_YD1XEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="_8Wo_YT1XEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_8Wi4wD1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8WoYUT1XEeaMysJ469gzTA" x="251" y="581"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_FzZYQD1ZEeaMysJ469gzTA" type="ActionExecutionSpecification_Shape">
-          <element xmi:type="uml:ActionExecutionSpecification" href="atmBadAccount.uml#_FzQOUD1ZEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FzZYQT1ZEeaMysJ469gzTA" x="42" y="200" width="16" height="174"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_surrsD1aEeaMysJ469gzTA" type="ActionExecutionSpecification_Shape">
-          <children xmi:type="notation:BasicCompartment" xmi:id="_suvWED1aEeaMysJ469gzTA" type="compartment_shape_display">
-            <styles xmi:type="notation:TitleStyle" xmi:id="_suvWET1aEeaMysJ469gzTA"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_suvWEj1aEeaMysJ469gzTA"/>
+        <children xmi:type="notation:Shape" xmi:id="_ksWuIEXYEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ksWuIkXYEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ksXVMEXYEeaLo5vtPVuNtw" x="18" y="18"/>
           </children>
-          <element xmi:type="uml:ActionExecutionSpecification" href="atmBadAccount.uml#_suh6sD1aEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_surrsT1aEeaMysJ469gzTA" x="42" y="89" width="16" height="30"/>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="atmBadAccount.uml#_ksScsUXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ksWuIUXYEeaLo5vtPVuNtw" x="42" y="27" width="16" height="712"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_4kxv8D1aEeaMysJ469gzTA" type="ActionExecutionSpecification_Shape">
-          <children xmi:type="notation:BasicCompartment" xmi:id="_4k2ocD1aEeaMysJ469gzTA" type="compartment_shape_display">
-            <styles xmi:type="notation:TitleStyle" xmi:id="_4k2ocT1aEeaMysJ469gzTA"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4k2ocj1aEeaMysJ469gzTA"/>
+        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_flZbYEXYEeaLo5vtPVuNtw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_flgwIUXYEeaLo5vtPVuNtw" x="51" y="10" width="100" height="872"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_gqwg8EXYEeaLo5vtPVuNtw" type="Lifeline_Shape">
+        <children xmi:type="notation:DecorationNode" xmi:id="_gqwg8kXYEeaLo5vtPVuNtw" type="Lifeline_NameLabel"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_gqyWIEXYEeaLo5vtPVuNtw" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_gqyWIUXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gqyWIkXYEeaLo5vtPVuNtw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_nQTRkEXYEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_nQT4oEXYEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_nQT4oUXYEeaLo5vtPVuNtw" x="18" y="18"/>
           </children>
-          <element xmi:type="uml:ActionExecutionSpecification" href="atmBadAccount.uml#_4kv6wD1aEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4kxv8T1aEeaMysJ469gzTA" x="42" y="482" width="16" height="32"/>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="atmBadAccount.uml#_nQSDcEXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nQTRkUXYEeaLo5vtPVuNtw" x="42" y="120" width="16" height="50"/>
         </children>
-        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_vWmQgD1XEeaMysJ469gzTA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vWs-MT1XEeaMysJ469gzTA" x="264" y="10" width="100" height="699"/>
+        <children xmi:type="notation:Shape" xmi:id="_xkdB8EXYEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_xkdpAEXYEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_xkdpAUXYEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_xkVGIEXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xkdB8UXYEeaLo5vtPVuNtw" x="227" y="78"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_0a4cgEXYEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_0a5DkEXYEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_0a5DkUXYEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_0axu0EXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0a4cgUXYEeaLo5vtPVuNtw" x="48" y="265"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_AlZ4oEXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_AlZ4okXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_AlZ4o0XZEeaLo5vtPVuNtw" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="atmBadAccount.uml#_AlYDcEXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AlZ4oUXZEeaLo5vtPVuNtw" x="42" y="312" width="16" height="261"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_qDNBkEXZEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_qDNBkkXZEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_qDNBk0XZEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_qDCpgEXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qDNBkUXZEeaLo5vtPVuNtw" x="50" y="652"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_taBMYEXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_taBMYkXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_taBzcEXZEeaLo5vtPVuNtw" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="atmBadAccount.uml#_tZ_-QEXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_taBMYUXZEeaLo5vtPVuNtw" x="42" y="688" height="50"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_z9drQEXZEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_z9eSUEXZEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_z9eSUUXZEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_z9SFEEXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z9drQUXZEeaLo5vtPVuNtw" x="47" y="815"/>
+        </children>
+        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_gquEsEXYEeaLo5vtPVuNtw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gqwg8UXYEeaLo5vtPVuNtw" x="240" y="10" width="100" height="872"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_xegYMD1XEeaMysJ469gzTA" type="Lifeline_Shape">
-        <children xmi:type="notation:DecorationNode" xmi:id="_xegYMj1XEeaMysJ469gzTA" type="Lifeline_NameLabel"/>
-        <children xmi:type="notation:BasicCompartment" xmi:id="_xekpoD1XEeaMysJ469gzTA" type="compartment_shape_display">
-          <styles xmi:type="notation:TitleStyle" xmi:id="_xekpoT1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xekpoj1XEeaMysJ469gzTA"/>
+      <children xmi:type="notation:Shape" xmi:id="_hWAdYEXYEeaLo5vtPVuNtw" type="Lifeline_Shape">
+        <children xmi:type="notation:DecorationNode" xmi:id="_hWBEcEXYEeaLo5vtPVuNtw" type="Lifeline_NameLabel"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_hWDgsEXYEeaLo5vtPVuNtw" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_hWDgsUXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hWDgskXYEeaLo5vtPVuNtw"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_-gscID1XEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="_-gtDMD1XEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="_-gtDMT1XEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_-gm8kD1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-gscIT1XEeaMysJ469gzTA" x="49" y="81"/>
+        <children xmi:type="notation:Shape" xmi:id="_23EyIEXYEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_23FZMEXYEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_23FZMUXYEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_22-rgEXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23EyIUXYEeaLo5vtPVuNtw" x="425" y="73"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="__71kcD1XEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="__72LgD1XEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="__72LgT1XEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#__7wr8D1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__71kcT1XEeaMysJ469gzTA" x="54" y="439"/>
+        <children xmi:type="notation:Shape" xmi:id="_E43R4EXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_E43R4kXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_E43R40XZEeaLo5vtPVuNtw" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="atmBadAccount.uml#_E42DwEXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E43R4UXZEeaLo5vtPVuNtw" x="42" y="323" width="16" height="61"/>
         </children>
-        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_xedU4D1XEeaMysJ469gzTA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xegYMT1XEeaMysJ469gzTA" x="430" y="10" width="100" height="699"/>
+        <children xmi:type="notation:Shape" xmi:id="_2Ylp4EXZEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_2YmQ8EXZEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_2YmQ8UXZEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_2YZcoEXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Ylp4UXZEeaLo5vtPVuNtw" x="52" y="827"/>
+        </children>
+        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_hV9aEEXYEeaLo5vtPVuNtw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hWAdYUXYEeaLo5vtPVuNtw" x="438" y="10" width="100" height="872"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_yeyJcD1XEeaMysJ469gzTA" type="Lifeline_Shape">
-        <children xmi:type="notation:DecorationNode" xmi:id="_yeywgD1XEeaMysJ469gzTA" type="Lifeline_NameLabel"/>
-        <children xmi:type="notation:BasicCompartment" xmi:id="_ye2a4D1XEeaMysJ469gzTA" type="compartment_shape_display">
-          <styles xmi:type="notation:TitleStyle" xmi:id="_ye2a4T1XEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ye2a4j1XEeaMysJ469gzTA"/>
+      <children xmi:type="notation:Shape" xmi:id="_iHb6UEXYEeaLo5vtPVuNtw" type="Lifeline_Shape">
+        <children xmi:type="notation:DecorationNode" xmi:id="_iHchYEXYEeaLo5vtPVuNtw" type="Lifeline_NameLabel"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_iHe9oEXYEeaLo5vtPVuNtw" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_iHe9oUXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iHe9okXYEeaLo5vtPVuNtw"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_BaAyoD1YEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="_BaBZsD1YEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="_BaBZsT1YEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_BZ6sAD1YEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BaAyoT1YEeaMysJ469gzTA" x="46" y="95"/>
+        <children xmi:type="notation:Shape" xmi:id="_8weOcEXYEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_8weOckXYEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_8weOc0XYEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_8wW5sEXYEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8weOcUXYEeaLo5vtPVuNtw" x="597" y="80"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_COzFkD1YEeaMysJ469gzTA" type="StateInvariant_Shape">
-          <children xmi:type="notation:DecorationNode" xmi:id="_COzFkj1YEeaMysJ469gzTA" type="StateInvariant_NameLabel"/>
-          <children xmi:type="notation:DecorationNode" xmi:id="_COzFkz1YEeaMysJ469gzTA" type="StateInvariant_ConstraintLabel"/>
-          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_COsX4D1YEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COzFkT1YEeaMysJ469gzTA" x="46" y="466"/>
+        <children xmi:type="notation:Shape" xmi:id="_J5UUAEXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_J5UUAkXZEeaLo5vtPVuNtw" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_J5UUA0XZEeaLo5vtPVuNtw" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="atmBadAccount.uml#_J5TF4EXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J5UUAUXZEeaLo5vtPVuNtw" x="42" y="333" width="16" height="38"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_2DfJ0D1YEeaMysJ469gzTA" type="ActionExecutionSpecification_Shape">
-          <element xmi:type="uml:ActionExecutionSpecification" href="atmBadAccount.uml#_2Dd7sD1YEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2DfJ0T1YEeaMysJ469gzTA" x="42" y="209" width="16" height="25"/>
+        <children xmi:type="notation:Shape" xmi:id="_31pdwEXZEeaLo5vtPVuNtw" type="StateInvariant_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_31qE0EXZEeaLo5vtPVuNtw" type="StateInvariant_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_31qE0UXZEeaLo5vtPVuNtw" type="StateInvariant_ConstraintLabel"/>
+          <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#_31dQgEXZEeaLo5vtPVuNtw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_31pdwUXZEeaLo5vtPVuNtw" x="43" y="831"/>
         </children>
-        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_yeufED1XEeaMysJ469gzTA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yeyJcT1XEeaMysJ469gzTA" x="664" y="10" width="100" height="699"/>
+        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_iHZeEEXYEeaLo5vtPVuNtw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iHb6UUXYEeaLo5vtPVuNtw" x="612" y="10" width="100" height="872"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_H5A2YD1YEeaMysJ469gzTA" type="Lifeline_Shape">
-        <children xmi:type="notation:DecorationNode" xmi:id="_H5BdcD1YEeaMysJ469gzTA" type="Lifeline_NameLabel"/>
-        <children xmi:type="notation:BasicCompartment" xmi:id="_H5FH0D1YEeaMysJ469gzTA" type="compartment_shape_display">
-          <styles xmi:type="notation:TitleStyle" xmi:id="_H5FH0T1YEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_H5FH0j1YEeaMysJ469gzTA"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_Xyxu8D1ZEeaMysJ469gzTA" type="ActionExecutionSpecification_Shape">
-          <element xmi:type="uml:ActionExecutionSpecification" href="atmBadAccount.uml#_Xyn98T1ZEeaMysJ469gzTA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xyxu8T1ZEeaMysJ469gzTA" x="42" y="47" width="16" height="490"/>
-        </children>
-        <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_H46IsD1YEeaMysJ469gzTA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_H5A2YT1YEeaMysJ469gzTA" x="17" y="10" width="100" height="699"/>
-      </children>
-      <styles xmi:type="notation:CanonicalStyle" xmi:id="_-TU9MEL3EeaPg4ImLhexlA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jaaLVD1XEeaMysJ469gzTA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QZD0FEXYEeaLo5vtPVuNtw"/>
     </children>
-    <element xmi:type="uml:Interaction" href="atmBadAccount.uml#_jZ5N8D1XEeaMysJ469gzTA"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jaaLVT1XEeaMysJ469gzTA"/>
+    <element xmi:type="uml:Interaction" href="atmBadAccount.uml#_QY5cAEXYEeaLo5vtPVuNtw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QZD0FUXYEeaLo5vtPVuNtw" x="-34" y="43" height="930"/>
   </children>
-  <styles xmi:type="notation:StringValueStyle" xmi:id="_jaaLVj1XEeaMysJ469gzTA" name="diagram_compatibility_version" stringValue="1.2.0"/>
-  <styles xmi:type="notation:DiagramStyle" xmi:id="_jaaLVz1XEeaMysJ469gzTA"/>
-  <styles xmi:type="style:PapyrusViewStyle" xmi:id="_jaaLWD1XEeaMysJ469gzTA">
-    <owner xmi:type="uml:Model" href="atmBadAccount.uml#_jYh8AD1XEeaMysJ469gzTA"/>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_QZD0FkXYEeaLo5vtPVuNtw" name="diagram_compatibility_version" stringValue="1.2.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_QZD0F0XYEeaLo5vtPVuNtw"/>
+  <styles xmi:type="style:PapyrusViewStyle" xmi:id="_QZD0GEXYEeaLo5vtPVuNtw">
+    <owner xmi:type="uml:Model" href="atmBadAccount.uml#_QYo9UEXYEeaLo5vtPVuNtw"/>
   </styles>
-  <element xmi:type="uml:Interaction" href="atmBadAccount.uml#_jZ5N8D1XEeaMysJ469gzTA"/>
-  <edges xmi:type="notation:Connector" xmi:id="_9MdWoD1jEeaMysJ469gzTA" type="Message_AsynchEdge" source="_Xyxu8D1ZEeaMysJ469gzTA" target="_surrsD1aEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_9Md9sD1jEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_9Md9sT1jEeaMysJ469gzTA" x="1" y="-13"/>
+  <element xmi:type="uml:Interaction" href="atmBadAccount.uml#_QY5cAEXYEeaLo5vtPVuNtw"/>
+  <edges xmi:type="notation:Connector" xmi:id="_nP8FMEXYEeaLo5vtPVuNtw" type="Message_SynchEdge" source="_ksWuIEXYEeaLo5vtPVuNtw" target="_nQTRkEXYEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_nP8sQEXYEeaLo5vtPVuNtw" type="Message_SynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_nP8sQUXYEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_9Md9sj1jEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_9Md9sz1jEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_nP8sQkXYEeaLo5vtPVuNtw" type="Message_SynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_nP8sQ0XYEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_9MdWoT1jEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_9Md9tD1jEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_9MRJYD1jEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9MdWoj1jEeaMysJ469gzTA" points="[7, 0, -231, -5]$[254, 5, 16, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9MiPID1jEeaMysJ469gzTA" id="(0.5625,0.07551020408163266)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9MiPIT1jEeaMysJ469gzTA" id="(0.0,0.0){8}"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_nP8FMUXYEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_nP8sREXYEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_nIRW8EXYEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nP8FMkXYEeaLo5vtPVuNtw" points="[9, 0, -189, -1]$[198, 264, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nQMj4EXYEeaLo5vtPVuNtw" id="(0.625,0.13202247191011235)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nQoBsEXYEeaLo5vtPVuNtw" id="(0.0,0.0){8}"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_-wWyUD1jEeaMysJ469gzTA" type="Message_AsynchEdge" source="_surrsD1aEeaMysJ469gzTA" target="_Xyxu8D1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_-wWyUz1jEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_-wWyVD1jEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_qByhwEXYEeaLo5vtPVuNtw" type="Message_AsynchEdge" source="_nQTRkEXYEeaLo5vtPVuNtw" target="_ksWuIEXYEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_qByhw0XYEeaLo5vtPVuNtw" type="Message_AsynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qByhxEXYEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_-wWyVT1jEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_-wWyVj1jEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_qByhxUXYEeaLo5vtPVuNtw" type="Message_AsynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qByhxkXYEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_-wWyUT1jEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_-wWyVz1jEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_-wHhwD1jEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-wWyUj1jEeaMysJ469gzTA" points="[0, 0, 240, -2]$[-241, -72, -1, -74]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-wbq0D1jEeaMysJ469gzTA" id="(0.0,1.0){32}"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-wbq0T1jEeaMysJ469gzTA" id="(0.8125,0.1489795918367347)"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qByhwUXYEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_qBzI0EXYEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_qBjRMEXYEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qByhwkXYEeaLo5vtPVuNtw" points="[0, 0, 189, 0]$[-189, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qB4oYEXYEeaLo5vtPVuNtw" id="(0.0,1.0){32}"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qB4oYUXYEeaLo5vtPVuNtw" id="(0.4375,0.20786516853932585)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_GzVxUD1kEeaMysJ469gzTA" type="Message_AsynchEdge" source="_Xyxu8D1ZEeaMysJ469gzTA" target="_FzZYQD1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_GzVxUz1kEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_GzVxVD1kEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_Ak7-kEXZEeaLo5vtPVuNtw" type="Message_SynchEdge" source="_ksWuIEXYEeaLo5vtPVuNtw" target="_AlZ4oEXZEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Ak7-k0XZEeaLo5vtPVuNtw" type="Message_SynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ak7-lEXZEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_GzVxVT1kEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_GzVxVj1kEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Ak7-lUXZEeaLo5vtPVuNtw" type="Message_SynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ak7-lkXZEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_GzVxUT1kEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_GzVxVz1kEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_GzIV8D1kEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_GzVxUj1kEeaMysJ469gzTA" points="[5, -1, -231, 3]$[252, -4, 16, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Gzap0D1kEeaMysJ469gzTA" id="(0.6875,0.32040816326530613)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Gzap0T1kEeaMysJ469gzTA" id="(0.0,0.0){8}"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ak7-kUXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Ak7-l0XZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_ASqi0EXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ak7-kkXZEeaLo5vtPVuNtw" points="[12, -1, -190, 0]$[202, 17, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AlRVwEXZEeaLo5vtPVuNtw" id="(0.25,0.40168539325842695)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Al2kkEXZEeaLo5vtPVuNtw" id="(0.0,0.0){8}"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_JBjVUD1kEeaMysJ469gzTA" type="Message_AsynchEdge" source="_FzZYQD1ZEeaMysJ469gzTA" target="_Xyxu8D1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_JBjVUz1kEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_JBjVVD1kEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_E4XioEXZEeaLo5vtPVuNtw" type="Message_SynchEdge" source="_AlZ4oEXZEeaLo5vtPVuNtw" target="_E43R4EXZEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_E4Xio0XZEeaLo5vtPVuNtw" type="Message_SynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_E4XipEXZEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_JBjVVT1kEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_JBjVVj1kEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_E4YJsEXZEeaLo5vtPVuNtw" type="Message_SynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_E4YJsUXZEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_JBjVUT1kEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_JBjVVz1kEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_JBY9QD1kEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JBjVUj1kEeaMysJ469gzTA" points="[-9, 0, 247, -1]$[-256, 1, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JB-MED1kEeaMysJ469gzTA" id="(0.5625,0.28160919540229884)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JB-MET1kEeaMysJ469gzTA" id="(0.0,0.4142857142857143)"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_E4XioUXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_E4YJskXZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_EsV40EXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E4XiokXZEeaLo5vtPVuNtw" points="[7, -1, -199, 0]$[206, 8, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E4uH8EXZEeaLo5vtPVuNtw" id="(0.5625,0.04597701149425287)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E5RhkEXZEeaLo5vtPVuNtw" id="(0.0,0.0){8}"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_Lo8OUD1kEeaMysJ469gzTA" type="Message_AsynchEdge" source="_FzZYQD1ZEeaMysJ469gzTA" target="_Xyxu8D1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_Lo8OUz1kEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Lo8OVD1kEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_J4vsQEXZEeaLo5vtPVuNtw" type="Message_SynchEdge" source="_E43R4EXZEeaLo5vtPVuNtw" target="_J5UUAEXZEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_J4vsQ0XZEeaLo5vtPVuNtw" type="Message_SynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_J4vsREXZEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_Lo8OVT1kEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Lo8OVj1kEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_J4vsRUXZEeaLo5vtPVuNtw" type="Message_SynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_J4vsRkXZEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_Lo8OUT1kEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_Lo8OVz1kEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_LouL4D1kEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Lo8OUj1kEeaMysJ469gzTA" points="[0, 0, 237, -1]$[-231, -2, 6, -3]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LpavcD1kEeaMysJ469gzTA" id="(0.0,0.5172413793103449)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LpavcT1kEeaMysJ469gzTA" id="(0.625,0.49795918367346936)"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_J4vsQUXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_J4vsR0XZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_JtmMMEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_J4vsQkXZEeaLo5vtPVuNtw" points="[8, 0, -174, -7]$[182, 7, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J5JU4EXZEeaLo5vtPVuNtw" id="(0.5,0.16393442622950818)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J50qUEXZEeaLo5vtPVuNtw" id="(0.0,0.0){8}"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_NTgSsD1kEeaMysJ469gzTA" type="Message_AsynchEdge" source="_FzZYQD1ZEeaMysJ469gzTA" target="_Xyxu8D1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_NTgSsz1kEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_NTgStD1kEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_SJEjsEXZEeaLo5vtPVuNtw" type="Message_ReplyEdge" source="_J5UUAEXZEeaLo5vtPVuNtw" target="_E43R4EXZEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_SJEjs0XZEeaLo5vtPVuNtw" type="Message_ReplyNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_SJFKwEXZEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_NTgStT1kEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_NTgStj1kEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_SJFKwUXZEeaLo5vtPVuNtw" type="Message_ReplyStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_SJFKwkXZEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_NTgSsT1kEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_NTgStz1kEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_NTSQQD1kEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NTgSsj1kEeaMysJ469gzTA" points="[-2, 0, 241, 0]$[-249, 108, -6, 108]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NUCeMD1kEeaMysJ469gzTA" id="(0.125,0.735632183908046)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NUCeMT1kEeaMysJ469gzTA" id="(0.375,0.573469387755102)"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_SJEjsUXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_SJFKw0XZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_SIriIEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SJEjskXZEeaLo5vtPVuNtw" points="[0, 0, 174, -31]$[-158, 31, 16, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SJKqUEXZEeaLo5vtPVuNtw" id="(0.0,1.0){32}"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SJKqUUXZEeaLo5vtPVuNtw" id="(0.875,0.7704918032786885)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_PohCQD1kEeaMysJ469gzTA" type="Message_AsynchEdge" source="_FzZYQD1ZEeaMysJ469gzTA" target="_Xyxu8D1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_PohCQz1kEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_PohCRD1kEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_Y--rkEXZEeaLo5vtPVuNtw" type="Message_ReplyEdge" source="_E43R4EXZEeaLo5vtPVuNtw" target="_AlZ4oEXZEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Y-_SoEXZEeaLo5vtPVuNtw" type="Message_ReplyNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Y-_SoUXZEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_PohCRT1kEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_PohCRj1kEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Y-_SokXZEeaLo5vtPVuNtw" type="Message_ReplyStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Y-_So0XZEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_PohCQT1kEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_PohCRz1kEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_PoP8gD1kEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PohCQj1kEeaMysJ469gzTA" points="[0, 0, 238, -4]$[-237, 163, 1, 159]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ponv8D1kEeaMysJ469gzTA" id="(0.0,1.0){32}"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ponv8T1kEeaMysJ469gzTA" id="(0.5625,0.6693877551020408)"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Y--rkUXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Y-_SpEXZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_Y-wCEEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Y--rkkXZEeaLo5vtPVuNtw" points="[0, 0, 186, -8]$[-182, -43, 4, -51]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Y_cloEXZEeaLo5vtPVuNtw" id="(0.0,1.0){32}"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Y_cloUXZEeaLo5vtPVuNtw" id="(0.75,0.27586206896551724)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_T5YagD1kEeaMysJ469gzTA" type="Message_AsynchEdge" source="_Xyxu8D1ZEeaMysJ469gzTA" target="_4kxv8D1aEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_T5Yagz1kEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_T5YahD1kEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_gzkpQEXZEeaLo5vtPVuNtw" type="Message_AsynchEdge" source="_AlZ4oEXZEeaLo5vtPVuNtw" target="_ksWuIEXYEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_gzkpQ0XZEeaLo5vtPVuNtw" type="Message_AsynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gzkpREXZEeaLo5vtPVuNtw" x="35" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_T5YahT1kEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_T5Yahj1kEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_gzkpRUXZEeaLo5vtPVuNtw" type="Message_AsynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gzkpRkXZEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_T5YagT1kEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_T5Yahz1kEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_T5HUwD1kEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_T5Yagj1kEeaMysJ469gzTA" points="[0, 0, -238, 117]$[254, -117, 16, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_T51tgD1kEeaMysJ469gzTA" id="(1.0,0.8979591836734694)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_T51tgT1kEeaMysJ469gzTA" id="(0.0,0.0){8}"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gzkpQUXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_gzkpR0XZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_gzFhEEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gzkpQkXZEeaLo5vtPVuNtw" points="[-9, -1, 189, 0]$[-198, -1, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_g0CjUEXZEeaLo5vtPVuNtw" id="(0.75,0.3103448275862069)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_g0CjUUXZEeaLo5vtPVuNtw" id="(0.0,0.5126404494382022)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_VlglID1kEeaMysJ469gzTA" type="Message_AsynchEdge" source="_4kxv8D1aEeaMysJ469gzTA" target="_Xyxu8D1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_VlhMMD1kEeaMysJ469gzTA" type="Message_AsynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_VlhMMT1kEeaMysJ469gzTA" x="1" y="-13"/>
+  <edges xmi:type="notation:Connector" xmi:id="_jMuR8EXZEeaLo5vtPVuNtw" type="Message_AsynchEdge" source="_AlZ4oEXZEeaLo5vtPVuNtw" target="_ksWuIEXYEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_jMuR80XZEeaLo5vtPVuNtw" type="Message_AsynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jMu5AEXZEeaLo5vtPVuNtw" x="1" y="-13"/>
     </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_VlhMMj1kEeaMysJ469gzTA" type="Message_AsynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_VlhMMz1kEeaMysJ469gzTA" x="1" y="-33"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_jMu5AUXZEeaLo5vtPVuNtw" type="Message_AsynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jMu5AkXZEeaLo5vtPVuNtw" x="1" y="-33"/>
     </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_VlglIT1kEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_VlhMND1kEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_VlRUkD1kEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VlglIj1kEeaMysJ469gzTA" points="[0, 0, 247, -1]$[-247, 1, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VlpvED1kEeaMysJ469gzTA" id="(0.0,1.0){32}"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VlpvET1kEeaMysJ469gzTA" id="(0.0,0.9551020408163265)"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jMuR8UXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_jMu5A0XZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_jMhdoEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jMuR8kXZEeaLo5vtPVuNtw" points="[-6, 0, 185, 0]$[-195, 146, -4, 146]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jNMMAEXZEeaLo5vtPVuNtw" id="(0.375,0.6168582375478927)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jNMMAUXZEeaLo5vtPVuNtw" id="(0.25,0.6264044943820225)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_kbcu4EXZEeaLo5vtPVuNtw" type="Message_AsynchEdge" source="_AlZ4oEXZEeaLo5vtPVuNtw" target="_ksWuIEXYEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_kbdV8EXZEeaLo5vtPVuNtw" type="Message_AsynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_kbdV8UXZEeaLo5vtPVuNtw" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_kbdV8kXZEeaLo5vtPVuNtw" type="Message_AsynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_kbdV80XZEeaLo5vtPVuNtw" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_kbcu4UXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_kbdV9EXZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_kbPTgEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kbcu4kXZEeaLo5vtPVuNtw" points="[-7, 0, 187, -4]$[-196, 65, -2, 61]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kcIEUEXZEeaLo5vtPVuNtw" id="(0.4375,0.7509578544061303)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kcIEUUXZEeaLo5vtPVuNtw" id="(0.125,0.6741573033707865)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_nPXoAEXZEeaLo5vtPVuNtw" type="Message_AsynchEdge" source="_AlZ4oEXZEeaLo5vtPVuNtw" target="_ksWuIEXYEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_nPYPEEXZEeaLo5vtPVuNtw" type="Message_AsynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_nPYPEUXZEeaLo5vtPVuNtw" x="36" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_nPYPEkXZEeaLo5vtPVuNtw" type="Message_AsynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_nPYPE0XZEeaLo5vtPVuNtw" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_nPXoAUXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_nPYPFEXZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_nPFUIEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nPXoAkXZEeaLo5vtPVuNtw" points="[-11, -1, 181, 0]$[-192, 79, 0, 80]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nP1iEEXZEeaLo5vtPVuNtw" id="(0.0,1.0){32}"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nP2JIEXZEeaLo5vtPVuNtw" id="(0.75,0.7668539325842697)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_tZVP4EXZEeaLo5vtPVuNtw" type="Message_SynchEdge" source="_ksWuIEXYEeaLo5vtPVuNtw" target="_taBMYEXZEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_tZV28EXZEeaLo5vtPVuNtw" type="Message_SynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_tZV28UXZEeaLo5vtPVuNtw" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_tZV28kXZEeaLo5vtPVuNtw" type="Message_SynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_tZV280XZEeaLo5vtPVuNtw" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_tZVP4UXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_tZV29EXZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_tJigYEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tZVP4kXZEeaLo5vtPVuNtw" points="[10, 0, -190, -5]$[200, 5, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tZ0_IEXZEeaLo5vtPVuNtw" id="(0.9375,0.9283707865168539)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tafGcEXZEeaLo5vtPVuNtw" id="(0.0,0.0){8}"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_xEJ70EXZEeaLo5vtPVuNtw" type="Message_AsynchEdge" source="_taBMYEXZEeaLo5vtPVuNtw" target="_ksWuIEXYEeaLo5vtPVuNtw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_xEJ700XZEeaLo5vtPVuNtw" type="Message_AsynchNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_xEJ71EXZEeaLo5vtPVuNtw" x="35" y="-10"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_xEJ71UXZEeaLo5vtPVuNtw" type="Message_AsynchStereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_xEJ71kXZEeaLo5vtPVuNtw" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_xEJ70UXZEeaLo5vtPVuNtw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_xEJ710XZEeaLo5vtPVuNtw"/>
+    <element xmi:type="uml:Message" href="atmBadAccount.uml#_xD6rQEXZEeaLo5vtPVuNtw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xEJ70kXZEeaLo5vtPVuNtw" points="[-11, 0, 185, -1]$[-197, 17, -1, 16]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xEprEEXZEeaLo5vtPVuNtw" id="(0.0,1.0){32}"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xEqSIEXZEeaLo5vtPVuNtw" id="(0.25,0.9775280898876404)"/>
   </edges>
 </notation:Diagram>

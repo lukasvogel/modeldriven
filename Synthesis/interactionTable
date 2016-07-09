@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore">
-  <elite:State name="WaitBankVerify"/>
   <elite:State name="WaitVerify"/>
+  <elite:State name="WaitCard"/>
+  <elite:State name="WaitBankVerify"/>
   <elite:State name="WaitPassword"/>
   <elite:State name="WaitTakeCard"/>
   <elite:CommObject name="user"/>
   <elite:CommObject name="atm"/>
   <elite:CommObject name="consortium"/>
   <elite:CommObject name="bank"/>
-  <elite:Operation name="requestPassword"/>
-  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="printReceipt"/>
   <elite:Operation name="ejectCard"/>
+  <elite:Operation name="requestPassword"/>
   <elite:Operation name="verifyAccount"/>
-  <elite:Operation name="cancel"/>
-  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="verifyCardWithBank"/>
   <elite:Operation name="requestTakeCard"/>
-  <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="takeCard"/>
+  <elite:Operation name="insertCard"/>
+  <elite:Operation name="displayMainScreen"/>
+  <elite:Operation name="badAccountMessage"/>
   <elite:Scenario>
-    <communications xsi:type="elite:SystemCommunication" returnType=":badBankPassword" postState="/0" preState="/0">
-      <message operation="/9" sender="/6" receiver="/7"/>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="/11" sender="/6" receiver="/5"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/20/@communications.0" postState="/3" preState="/1">
+      <message operation="/17" sender="/5" receiver="/6"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/15" sender="/5" receiver="/4"/>
+      <message operation="/18" sender="/6" receiver="/5"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/20/@communications.2" postState="/1" preState="/4">
+      <message operation="/16" sender="/5" receiver="/6"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badBankAccount" postState="/2" preState="/2">
+      <message operation="/13" sender="/7" receiver="/8"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badAccount" covers="/20/@communications.4" postState="/0" preState="/0">
+      <message operation="/12" sender="/6" receiver="/7"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/10" sender="/5" receiver="/4"/>
+      <message operation="/19" sender="/6" receiver="/5"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/14" sender="/5" receiver="/4"/>
-    </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/16/@communications.1 /16/@communications.2 /16/@communications.3" postState="/3" preState="/2">
-      <message operation="/12" sender="/4" receiver="/5"/>
-    </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType=":badPassword" covers="/16/@communications.0" postState="/1" preState="/1">
-      <message operation="/11" sender="/5" receiver="/6"/>
+      <message operation="/9" sender="/6" receiver="/5"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/8" sender="/5" receiver="/4"/>
+      <message operation="/10" sender="/6" receiver="/5"/>
     </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/16/@communications.5 /16/@communications.6" postState="/2" preState="/2">
-      <message operation="/13" sender="/4" receiver="/5"/>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="/14" sender="/6" receiver="/5"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/20/@communications.5 /20/@communications.6 /20/@communications.7 /20/@communications.8 /20/@communications.9" postState="/4" preState="/3">
+      <message operation="/15" sender="/5" receiver="/6"/>
     </communications>
   </elite:Scenario>
 </xmi:XMI>

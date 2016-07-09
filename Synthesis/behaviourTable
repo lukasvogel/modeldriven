@@ -8,18 +8,13 @@
   <elite:State name="WaitVerify"/>
   <elite:State name="WaitPassword"/>
   <elite:State name="WaitTakeCard"/>
-  <elite_1:BehaviourTable behaviours="/10 /9 /16 /12"/>
+  <elite_1:BehaviourTable behaviours="/9"/>
   <elite_1:Behaviour preState="/4" postState="/4">
     <inMessage name="verifyCardWithBank"/>
     <activation returnType=":badBankPassword"/>
   </elite_1:Behaviour>
-  <elite_1:Behaviour preState="/5" postState="/5">
-    <inMessage name="verifyAccount"/>
-    <activation returnType=":badPassword" outMessages="/11"/>
-  </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/9/@inMessage" returnType=":badBankPassword">
-    <recvObject href="interactionTable#/7"/>
-  </elite_1:OutMessage>
+  <elite_1:BehaviourTable/>
+  <elite_1:BehaviourTable behaviours="/12 /16"/>
   <elite_1:Behaviour preState="/6" postState="/7">
     <inMessage name="cancel"/>
     <activation returnType="void" outMessages="/13 /14 /15"/>
@@ -37,10 +32,18 @@
     <inMessage name="enterPassword"/>
     <activation returnType="void" outMessages="/17 /18"/>
   </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/10/@inMessage" returnType=":badPassword">
+  <elite_1:OutMessage operation="/20/@inMessage" returnType=":badPassword">
     <recvObject href="interactionTable#/6"/>
   </elite_1:OutMessage>
   <elite_1:OutMessage operation="/0" returnType="void">
     <recvObject href="interactionTable#/4"/>
+  </elite_1:OutMessage>
+  <elite_1:BehaviourTable behaviours="/20"/>
+  <elite_1:Behaviour preState="/5" postState="/5">
+    <inMessage name="verifyAccount"/>
+    <activation returnType=":badPassword" outMessages="/21"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="/9/@inMessage" returnType=":badBankPassword">
+    <recvObject href="interactionTable#/7"/>
   </elite_1:OutMessage>
 </xmi:XMI>
