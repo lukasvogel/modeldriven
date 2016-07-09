@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore">
+  <elite:State name="WaitBankVerify"/>
+  <elite:State name="WaitPassword"/>
+  <elite:State name="WaitVerify"/>
+  <elite:State name="WaitTakeCard"/>
+  <elite:CommObject name="user"/>
+  <elite:CommObject name="atm"/>
+  <elite:CommObject name="consortium"/>
+  <elite:CommObject name="bank"/>
+  <elite:Operation name="cancel"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="verifyAccount"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:Scenario communications="/17 /18 /19 /20 /21 /22 /23 /24"/>
+  <elite:SystemCommunication returnType=":badPassword" postState="/2" preState="/2">
+    <message operation="/13" sender="/5" receiver="/6"/>
+  </elite:SystemCommunication>
+  <elite:SystemCommunication returnType=":badBankPassword" postState="/0" preState="/0">
+    <message operation="/11" sender="/6" receiver="/7"/>
+  </elite:SystemCommunication>
+  <elite:UserCommunication returnType="void">
+    <message operation="/9" sender="/5" receiver="/4"/>
+  </elite:UserCommunication>
+  <elite:SystemCommunication returnType="void" postState="/3" preState="/1">
+    <message operation="/8" sender="/4" receiver="/5"/>
+  </elite:SystemCommunication>
+  <elite:UserCommunication returnType="void">
+    <message operation="/15" sender="/5" receiver="/4"/>
+  </elite:UserCommunication>
+  <elite:SystemCommunication returnType="void" postState="/1" preState="/1">
+    <message operation="/14" sender="/4" receiver="/5"/>
+  </elite:SystemCommunication>
+  <elite:UserCommunication returnType="void">
+    <message operation="/10" sender="/5" receiver="/4"/>
+  </elite:UserCommunication>
+  <elite:UserCommunication returnType="void">
+    <message operation="/12" sender="/5" receiver="/4"/>
+  </elite:UserCommunication>
+</xmi:XMI>

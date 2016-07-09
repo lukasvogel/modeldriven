@@ -2,4 +2,5 @@
 <uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
   <mapping sourceURI="interactionMetamodel" targetURI="platform:/resource/Synthesis/model/interactionMetamodel/interactionMetamodel.ecore"/>
   <mapping sourceURI="interactionTable" targetURI="platform:/resource/Synthesis/model/interactionTable/interactionTable.ecore"/>
+  <mapping sourceURI="behaviourTable" targetURI="platform:/resource/Synthesis/model/behaviourTable/behaviourTable.ecore#/"/>
 </uriMap:MappingContainer>

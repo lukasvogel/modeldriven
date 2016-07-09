@@ -16,8 +16,8 @@ main() {
 
 
 mapping Interaction::transformInteraction() : Scenario {
-	communications += seqDiagram.objectsOfKind(ExecutionSpecification).map transformExecSpec();
-	communications += seqDiagram.objectsOfKind(MessageOccurrenceSpecification).map transformMsgOccToUser();
+	
+	communications := self.fragment.map tranformInteractionFragment();
 }
 
 mapping StateInvariant::transformeStateInvariant() : InteractionTable::State 
@@ -40,6 +40,11 @@ mapping Lifeline::transformLifeline() : CommObject {
 mapping Message::transformMessage() : InteractionTable::Operation {
 	name := self.name;
 }
+
+mapping InteractionFragment::tranformInteractionFragment() : InteractionTable::Communication
+	disjuncts 
+		ExecutionSpecification::transformExecSpec,
+		MessageOccurrenceSpecification::transformMsgOccToUser;
 
 mapping ExecutionSpecification::transformExecSpec() : InteractionTable::SystemCommunication 
 	when {		

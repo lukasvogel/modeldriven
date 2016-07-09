@@ -1,0 +1,99 @@
+modeltype InteractionTable uses 'interactionTable';
+modeltype BehaviourTable uses 'behaviourTable';
+
+transformation interactionToBehaviourTable(in iTable : InteractionTable, out bTable : BehaviourTable);
+
+main() {
+
+	iTable.objectsOfKind(Operation).map transformOperation();
+	iTable.objectsOfKind(State).map transformState();
+	
+
+	var scenario := iTable.objectsOfKind(Scenario)->any(true);
+	scenario.map transformToTable();	
+}
+
+mapping Operation::transformOperation() : Operation {
+	name := self.name;
+}
+
+mapping State::transformState() : State {
+	name := self.name
+}
+
+
+mapping Scenario::transformToTable() : BehaviourTable::BehaviourTable {
+
+	// get all objects in the scenario
+	var objs := self.communications->message.receiver->asSet();
+	
+	var behaviours := objs->collect( o | 
+								self.communications->select(c | c.message.receiver = o).map transformCommunicationToBeh(o, self));
+	
+	result.behaviours += behaviours->flatten();
+	
+}
+
+mapping Communication::transformCommunicationToBeh(in obj : CommObject, in scenario : Scenario) : Behaviour
+	when {
+		// our object has to be the receiver
+		self.message.receiver = obj;
+		self.oclIsKindOf(SystemCommunication);
+	} {
+	// first we get the operation that has been called on us
+	inMessage := self.message.operation.resolveone(Operation);
+	preState := self.oclAsType(SystemCommunication).preState.resolveone(State);
+	postState := self.oclAsType(SystemCommunication).postState.resolveone(State);
+	
+	log("---- BEHAVIOUR ----");
+	log("receiver: " + obj.name);
+	log("preState: " + result.preState.name);
+	log("inMessage: " + result.inMessage.name);
+	log("");
+	
+	// we then get all subsequent messages we sent
+	var msgSent := self.sentAfterReceive(scenario);
+		
+	activation := object Activation {
+		outMessages := msgSent.map transformCommunicationToOutMsg();
+		returnType := self.returnType;
+	};
+	
+	log("return : " + result.activation.returnType);
+	log("postState: " + result.postState.name);
+	
+	log("");
+	
+	
+}
+
+mapping Communication::transformCommunicationToOutMsg() : OutMessage {
+	returnType := self.returnType;
+	recvObject := self.message.receiver;
+	operation := self.message.operation.resolveone(Operation);
+	
+	log("\t operation: " + result.operation.name);	
+	log("\t receiver: " + result.recvObject.name);
+	log("\t return: " + result.returnType);
+	log("");
+	
+}
+
+helper Communication::sentAfterReceive(in scenario : Scenario) : Set(Communication) {
+	
+	var communications := scenario.communications;
+	
+	// start is when we get the message
+	var myIdx := communications->indexOf(self);
+	
+	// end is just before we return a message to our caller
+	// TODO: is this semantically okay?
+	var nextReceiving := communications->subOrderedSet(myIdx+1,communications->size())
+					->select(c | c.message.receiver = self.message.sender)->first();
+	
+	var lastIdx := communications->size().min(communications->indexOf(nextReceiving) - 2);
+	
+	// all communications that my receiver sent after receiving me
+	// and that happend before the next state is declared (i.e. in one activation)
+	return scenario.communications->subOrderedSet(myIdx+1,lastIdx);
+}

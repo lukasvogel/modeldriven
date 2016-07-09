@@ -77,9 +77,6 @@
           <element xmi:type="uml:StateInvariant" href="atmBadAccount.uml#__7wr8D1XEeaMysJ469gzTA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="__71kcT1XEeaMysJ469gzTA" x="54" y="439"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_r-pAwD1YEeaMysJ469gzTA" type="ActionExecutionSpecification_Shape">
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r-pAwT1YEeaMysJ469gzTA" x="42" y="200" width="16" height="41"/>
-        </children>
         <element xmi:type="uml:Lifeline" href="atmBadAccount.uml#_xedU4D1XEeaMysJ469gzTA"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xegYMT1XEeaMysJ469gzTA" x="430" y="10" width="100" height="699"/>
       </children>
@@ -133,62 +130,6 @@
     <owner xmi:type="uml:Model" href="atmBadAccount.uml#_jYh8AD1XEeaMysJ469gzTA"/>
   </styles>
   <element xmi:type="uml:Interaction" href="atmBadAccount.uml#_jZ5N8D1XEeaMysJ469gzTA"/>
-  <edges xmi:type="notation:Connector" xmi:id="_X8NNMD1YEeaMysJ469gzTA" type="Message_SynchEdge" source="_FzZYQD1ZEeaMysJ469gzTA" target="_r-pAwD1YEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_X8NNMz1YEeaMysJ469gzTA" type="Message_SynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_X8NNND1YEeaMysJ469gzTA" x="1" y="-13"/>
-    </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_X8NNNT1YEeaMysJ469gzTA" type="Message_SynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_X8NNNj1YEeaMysJ469gzTA" x="1" y="-33"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_X8NNMT1YEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_X8NNNz1YEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_X8DcMD1YEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_X8NNMj1YEeaMysJ469gzTA" points="[1, 0, -165, 0]$[166, 93, 0, 93]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_X8nc4D1YEeaMysJ469gzTA" id="(0.0,0.0){8}"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_X8nc4T1YEeaMysJ469gzTA" id="(0.0,0.0){8}"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_2DB20D1YEeaMysJ469gzTA" type="Message_SynchEdge" source="_r-pAwD1YEeaMysJ469gzTA" target="_2DfJ0D1YEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_2DB20z1YEeaMysJ469gzTA" type="Message_SynchNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_2DB21D1YEeaMysJ469gzTA" x="1" y="-13"/>
-    </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_2DB21T1YEeaMysJ469gzTA" type="Message_SynchStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_2DB21j1YEeaMysJ469gzTA" x="1" y="-33"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_2DB20T1YEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_2DB21z1YEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_1tP0ED1YEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2DB20j1YEeaMysJ469gzTA" points="[7, 0, -235, -1]$[242, 81, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2DWm8D1YEeaMysJ469gzTA" id="(0.5625,0.21951219512195122)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2D3kUD1YEeaMysJ469gzTA" id="(0.0,0.0){8}"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_56-YwD1YEeaMysJ469gzTA" type="Message_ReplyEdge" source="_2DfJ0D1YEeaMysJ469gzTA" target="_r-pAwD1YEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_56-Ywz1YEeaMysJ469gzTA" type="Message_ReplyNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_56-YxD1YEeaMysJ469gzTA" x="1" y="-13"/>
-    </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_56-YxT1YEeaMysJ469gzTA" type="Message_ReplyStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_56-Yxj1YEeaMysJ469gzTA" x="1" y="-33"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_56-YwT1YEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_56-Yxz1YEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_56xkcD1YEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_56-Ywj1YEeaMysJ469gzTA" points="[-3, -1, 234, 1]$[-221, -2, 16, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_57FGcD1YEeaMysJ469gzTA" id="(0.1875,1.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_57FGcT1YEeaMysJ469gzTA" id="(0.4375,0.8048780487804879)"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_PnGG8D1ZEeaMysJ469gzTA" type="Message_ReplyEdge" source="_r-pAwD1YEeaMysJ469gzTA" target="_FzZYQD1ZEeaMysJ469gzTA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_PnGG8z1ZEeaMysJ469gzTA" type="Message_ReplyNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_PnGG9D1ZEeaMysJ469gzTA" x="1" y="-13"/>
-    </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_PnGG9T1ZEeaMysJ469gzTA" type="Message_ReplyStereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_PnGuAD1ZEeaMysJ469gzTA" x="1" y="-33"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_PnGG8T1ZEeaMysJ469gzTA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_PnGuAT1ZEeaMysJ469gzTA"/>
-    <element xmi:type="uml:Message" href="atmBadAccount.uml#_PmiGQD1ZEeaMysJ469gzTA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PnGG8j1ZEeaMysJ469gzTA" points="[0, 0, 169, 3]$[-153, -3, 16, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PnM0oD1ZEeaMysJ469gzTA" id="(0.0,1.0){32}"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PnM0oT1ZEeaMysJ469gzTA" id="(0.75,0.2413793103448276)"/>
-  </edges>
   <edges xmi:type="notation:Connector" xmi:id="_9MdWoD1jEeaMysJ469gzTA" type="Message_AsynchEdge" source="_Xyxu8D1ZEeaMysJ469gzTA" target="_surrsD1aEeaMysJ469gzTA">
     <children xmi:type="notation:DecorationNode" xmi:id="_9Md9sD1jEeaMysJ469gzTA" type="Message_AsynchNameLabel">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_9Md9sT1jEeaMysJ469gzTA" x="1" y="-13"/>
