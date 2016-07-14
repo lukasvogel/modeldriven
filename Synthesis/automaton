@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xmlns:elite_1="ioAutomaton" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore ioAutomaton model/ioAutomaton/IOAutomaton.ecore">
+  <elite:CommObject name="user"/>
+  <elite:CommObject name="atm"/>
+  <elite:CommObject name="consortium"/>
+  <elite:CommObject name="bank"/>
+  <elite_1:AutomatonPackage automatons="/5 /8 /7 /6"/>
+  <elite_1:IOAutomaton actor="/0"/>
+  <elite_1:IOAutomaton actor="/1">
+    <states name="WaitCard"/>
+    <states name="WaitTakeCard"/>
+    <states name="WaitPassword"/>
+    <transitions>
+      <preState href="behaviourTable#/13"/>
+      <postState href="behaviourTable#/14"/>
+      <inMessage name="takeCard"/>
+      <activation returnType="void">
+        <outMessages href="behaviourTable#/26"/>
+      </activation>
+    </transitions>
+    <transitions>
+      <preState href="behaviourTable#/10"/>
+      <postState href="behaviourTable#/13"/>
+      <inMessage name="cancel"/>
+      <activation returnType="void">
+        <outMessages href="behaviourTable#/43"/>
+        <outMessages href="behaviourTable#/44"/>
+        <outMessages href="behaviourTable#/45"/>
+      </activation>
+    </transitions>
+    <transitions>
+      <preState href="behaviourTable#/10"/>
+      <postState href="behaviourTable#/13"/>
+      <inMessage name="enterPassword"/>
+      <activation returnType="void">
+        <outMessages href="behaviourTable#/30"/>
+        <outMessages href="behaviourTable#/31"/>
+        <outMessages href="behaviourTable#/32"/>
+        <outMessages href="behaviourTable#/33"/>
+        <outMessages href="behaviourTable#/34"/>
+      </activation>
+    </transitions>
+    <transitions>
+      <preState href="behaviourTable#/10"/>
+      <postState href="behaviourTable#/10"/>
+      <inMessage name="enterPassword"/>
+      <activation returnType="void">
+        <outMessages href="behaviourTable#/47"/>
+        <outMessages href="behaviourTable#/48"/>
+      </activation>
+    </transitions>
+    <transitions>
+      <preState href="behaviourTable#/14"/>
+      <postState href="behaviourTable#/10"/>
+      <inMessage name="insertCard"/>
+      <activation returnType="void">
+        <outMessages href="behaviourTable#/28"/>
+      </activation>
+    </transitions>
+  </elite_1:IOAutomaton>
+  <elite_1:IOAutomaton actor="/2">
+    <states name="WaitVerify"/>
+    <transitions>
+      <preState href="behaviourTable#/11"/>
+      <postState href="behaviourTable#/11"/>
+      <inMessage name="verifyAccount"/>
+      <activation returnType=":badAccount">
+        <outMessages href="behaviourTable#/23"/>
+      </activation>
+    </transitions>
+    <transitions>
+      <preState href="behaviourTable#/11"/>
+      <postState href="behaviourTable#/11"/>
+      <inMessage name="verifyAccount"/>
+      <activation returnType=":badPassword">
+        <outMessages href="behaviourTable#/40"/>
+      </activation>
+    </transitions>
+  </elite_1:IOAutomaton>
+  <elite_1:IOAutomaton actor="/3">
+    <states name="WaitBankVerify"/>
+    <transitions>
+      <preState href="behaviourTable#/12"/>
+      <postState href="behaviourTable#/12"/>
+      <inMessage name="verifyCardWithBank"/>
+      <activation returnType=":badBankPassword"/>
+    </transitions>
+    <transitions>
+      <preState href="behaviourTable#/12"/>
+      <postState href="behaviourTable#/12"/>
+      <inMessage name="verifyCardWithBank"/>
+      <activation returnType=":badBankAccount"/>
+    </transitions>
+  </elite_1:IOAutomaton>
+</xmi:XMI>

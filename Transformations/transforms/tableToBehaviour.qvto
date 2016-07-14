@@ -7,6 +7,7 @@ main() {
 
 	iTable.objectsOfKind(Operation).map transformOperation();
 	iTable.objectsOfKind(State).map transformState();
+	iTable.objectsOfKind(CommObject).map transformObj();
 	
 	iTable.objectsOfType(ScenarioPackage).map transformToPackage();
 }
@@ -18,6 +19,11 @@ mapping Operation::transformOperation() : Operation {
 mapping State::transformState() : State {
 	name := self.name
 }
+
+mapping CommObject::transformObj() : CommObject {
+	name := self.name
+}
+
 
 mapping ScenarioPackage::transformToPackage() : BehaviourPackage {
 	tables += self.scenarios.map transformToTableSet()
@@ -35,9 +41,9 @@ mapping Scenario::transformToTableSet() : Set(BehaviourTable::BehaviourTable) {
 
 helper Scenario::transformToTable(in sysObj : CommObject) : BehaviourTable::BehaviourTable {
 
-	log(self.name + "::" + sysObj.name);
 	return object BehaviourTable::BehaviourTable {
 		name := self.name;
+		actor := sysObj.resolveone(CommObject);
 		behaviours := self.communications->select(c | c.message.receiver = sysObj).map transformCommunicationToBeh(sysObj, self);
 	};
 }
@@ -58,8 +64,7 @@ mapping Communication::transformCommunicationToBeh(in obj : CommObject, in scena
 	log("preState: " + result.preState.name);
 	log("inMessage: " + result.inMessage.name);
 	log("");
-	
-		
+			
 	activation := object Activation {
 		outMessages := self.covers.map transformCommunicationToOutMsg();
 		returnType := self.returnType;
@@ -74,7 +79,7 @@ mapping Communication::transformCommunicationToBeh(in obj : CommObject, in scena
 
 mapping Communication::transformCommunicationToOutMsg() : OutMessage {
 	returnType := self.returnType;
-	recvObject := self.message.receiver;
+	recvObject := self.message.receiver.resolveone(CommObject);
 	operation := self.message.operation.resolveone(Operation);
 	
 	log("\t operation: " + result.operation.name);	

@@ -1,97 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore">
-  <elite:ScenarioPackage scenarios="/33 /34"/>
+  <elite:ScenarioPackage scenarios="/29 /30"/>
+  <elite:CommObject name="user"/>
+  <elite:CommObject name="atm"/>
+  <elite:CommObject name="consortium"/>
+  <elite:CommObject name="bank"/>
   <elite:State name="WaitPassword"/>
   <elite:State name="WaitVerify"/>
   <elite:State name="WaitBankVerify"/>
   <elite:State name="WaitTakeCard"/>
   <elite:State name="WaitCard"/>
-  <elite:CommObject name="user"/>
-  <elite:CommObject name="atm"/>
-  <elite:CommObject name="consortium"/>
-  <elite:CommObject name="bank"/>
-  <elite:CommObject name="user"/>
-  <elite:CommObject name="atm"/>
-  <elite:CommObject name="consortium"/>
-  <elite:CommObject name="bank"/>
   <elite:Operation name="enterPassword"/>
-  <elite:Operation name="cancel"/>
   <elite:Operation name="requestTakeCard"/>
-  <elite:Operation name="ejectCard"/>
-  <elite:Operation name="takeCard"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="printReceipt"/>
   <elite:Operation name="enterPassword"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="takeCard"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:Operation name="verifyAccount"/>
+  <elite:Operation name="displayMainScreen"/>
+  <elite:Operation name="badAccountMessage"/>
   <elite:Operation name="canceledMessage"/>
   <elite:Operation name="requestPassword"/>
+  <elite:Operation name="cancel"/>
+  <elite:Operation name="ejectCard"/>
   <elite:Operation name="verifyAccount"/>
   <elite:Operation name="insertCard"/>
-  <elite:Operation name="requestPassword"/>
-  <elite:Operation name="verifyCardWithBank"/>
-  <elite:Operation name="printReceipt"/>
-  <elite:Operation name="verifyAccount"/>
-  <elite:Operation name="verifyCardWithBank"/>
-  <elite:Operation name="ejectCard"/>
-  <elite:Operation name="badAccountMessage"/>
-  <elite:Operation name="displayMainScreen"/>
-  <elite:Operation name="requestTakeCard"/>
   <elite:Scenario name="Bad account">
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/24" sender="/11" receiver="/10"/>
+      <message operation="/21" sender="/2" receiver="/1"/>
     </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/33/@communications.0" postState="/1" preState="/5">
-      <message operation="/23" sender="/10" receiver="/11"/>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/29/@communications.0" postState="/9" preState="/8">
+      <message operation="/17" sender="/1" receiver="/2"/>
     </communications>
-    <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/31" sender="/11" receiver="/10"/>
-    </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/33/@communications.2" postState="/5" preState="/4">
-      <message operation="/18" sender="/10" receiver="/11"/>
-    </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType=":badBankAccount" postState="/3" preState="/3">
-      <message operation="/25" sender="/12" receiver="/13"/>
-    </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType=":badAccount" covers="/33/@communications.4" postState="/2" preState="/2">
-      <message operation="/22" sender="/11" receiver="/12"/>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badBankAccount" postState="/7" preState="/7">
+      <message operation="/12" sender="/3" receiver="/4"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/30" sender="/11" receiver="/10"/>
+      <message operation="/24" sender="/2" receiver="/1"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/29/@communications.3" postState="/5" preState="/9">
+      <message operation="/28" sender="/1" receiver="/2"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badAccount" covers="/29/@communications.2" postState="/6" preState="/6">
+      <message operation="/20" sender="/2" receiver="/3"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/26" sender="/11" receiver="/10"/>
+      <message operation="/22" sender="/2" receiver="/1"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/17" sender="/11" receiver="/10"/>
+      <message operation="/14" sender="/2" receiver="/1"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/32" sender="/11" receiver="/10"/>
+      <message operation="/26" sender="/2" receiver="/1"/>
     </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/33/@communications.5 /33/@communications.6 /33/@communications.7 /33/@communications.8 /33/@communications.9" postState="/4" preState="/1">
-      <message operation="/19" sender="/10" receiver="/11"/>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="/11" sender="/2" receiver="/1"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/29/@communications.5 /29/@communications.6 /29/@communications.7 /29/@communications.8 /29/@communications.9" postState="/8" preState="/5">
+      <message operation="/10" sender="/1" receiver="/2"/>
     </communications>
   </elite:Scenario>
   <elite:Scenario name="Bad password">
-    <communications xsi:type="elite:SystemCommunication" returnType=":badBankPassword" postState="/3" preState="/3">
-      <message operation="/28" sender="/8" receiver="/9"/>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badBankPassword" postState="/7" preState="/7">
+      <message operation="/18" sender="/3" receiver="/4"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/20" sender="/7" receiver="/6"/>
+      <message operation="/23" sender="/2" receiver="/1"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/29" sender="/7" receiver="/6"/>
+      <message operation="/19" sender="/2" receiver="/1"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/16" sender="/7" receiver="/6"/>
+      <message operation="/13" sender="/2" receiver="/1"/>
     </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/34/@communications.1 /34/@communications.2 /34/@communications.3" postState="/4" preState="/1">
-      <message operation="/15" sender="/6" receiver="/7"/>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/30/@communications.1 /30/@communications.2 /30/@communications.3" postState="/8" preState="/5">
+      <message operation="/25" sender="/1" receiver="/2"/>
     </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType=":badPassword" covers="/34/@communications.0" postState="/2" preState="/2">
-      <message operation="/27" sender="/7" receiver="/8"/>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badPassword" covers="/30/@communications.0" postState="/6" preState="/6">
+      <message operation="/27" sender="/2" receiver="/3"/>
     </communications>
     <communications xsi:type="elite:UserCommunication" returnType="void">
-      <message operation="/21" sender="/7" receiver="/6"/>
+      <message operation="/16" sender="/2" receiver="/1"/>
     </communications>
-    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/34/@communications.5 /34/@communications.6" postState="/1" preState="/1">
-      <message operation="/14" sender="/6" receiver="/7"/>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/30/@communications.5 /30/@communications.6" postState="/5" preState="/5">
+      <message operation="/15" sender="/1" receiver="/2"/>
     </communications>
   </elite:Scenario>
 </xmi:XMI>

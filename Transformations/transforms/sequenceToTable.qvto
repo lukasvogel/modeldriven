@@ -4,13 +4,13 @@ modeltype InteractionTable uses 'interactionTable';
 transformation sequenceDiagramToTable(in seqDiagram : SequenceDiagram, out interactionTable : InteractionTable);
 
 property knownStates : Set(InteractionTable::State);
-
+property knownObjects : Set(CommObject);
 main() {
 	
 	var package := object ScenarioPackage {} ;
 	
-	seqDiagram.objectsOfKind(StateInvariant).map transformeStateInvariant();
 	seqDiagram.objectsOfKind(Lifeline).map transformLifeline();
+	seqDiagram.objectsOfKind(StateInvariant).map transformeStateInvariant();
 	// don't transform the replies as they indicate the return type and no operation
 	seqDiagram.objectsOfKind(Message)->select(m | m.messageSort != MessageSort::reply).map transformMessage();
 	seqDiagram.objectsOfKind(Interaction).map transformInteraction(package);	
@@ -70,8 +70,17 @@ helper StateInvariant::getState() : InteractionTable::State {
 	return knownStates->select(s  | s.name = self.name.substringAfter("_"))->any(true);
 }
 
-mapping Lifeline::transformLifeline() : CommObject {
+mapping Lifeline::transformLifeline() : CommObject 
+	when {
+		knownObjects->select(s | s.name = self.name)->isEmpty();
+	} {
 	name := self.name;
+	knownObjects := knownObjects->including(result);
+}
+
+// TODO: Better way to actually find one without calling "when" again?
+helper Lifeline::getObj() : CommObject {
+	return knownObjects->select(s  | s.name = self.name)->any(true);
 }
 
 
@@ -184,8 +193,9 @@ helper Message::getSender() : Lifeline {
 
 helper MessageOccurrenceSpecification::transformToMessage() : CommMessage {
 	var message := object CommMessage {
-		sender := self.message.getSender().resolveone(CommObject);
-		receiver := self.message.getReceiver().resolveone(CommObject);
+		
+		sender := self.message.getSender().getObj();
+		receiver := self.message.getReceiver().getObj();
 		operation := self.message.resolveone(InteractionTable::Operation);
 	};
 	return message;

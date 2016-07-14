@@ -6,9 +6,16 @@
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="in" upperBound="-1" eType="ecore:EClass ../interactionTable/interactionTable.ecore#//Operation"
         derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
-        eType="ecore:EClass ../interactionTable/interactionTable.ecore#//State" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
-        eType="ecore:EClass ../behaviourTable/behaviourTable.ecore#//Behaviour" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" ordered="false"
+        upperBound="-1" eType="ecore:EClass ../interactionTable/interactionTable.ecore#//State"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" ordered="false"
+        upperBound="-1" eType="ecore:EClass ../behaviourTable/behaviourTable.ecore#//Behaviour"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="ecore:EClass ../interactionTable/interactionTable.ecore#//CommObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AutomatonPackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="automatons" upperBound="-1"
+        eType="#//IOAutomaton"/>
   </eClassifiers>
 </ecore:EPackage>

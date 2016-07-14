@@ -1,8 +1,55 @@
+modeltype InteractionTable uses 'interactionTable';
 modeltype BehaviourTable uses 'behaviourTable';
 modeltype Automaton uses 'ioAutomaton';
 
-transformation behaviourToAutomaton();
+transformation behaviourToAutomaton(in bTable : BehaviourTable, out automaton : Automaton);
 
 main() {
+	bTable.objectsOfKind(State).map transformState();
+	bTable.objectsOfKind(CommObject).map transformObj();
 
+	bTable.objectsOfKind(BehaviourPackage).map transformBehPackage();
+}
+
+mapping BehaviourPackage::transformBehPackage() : AutomatonPackage {
+	automatons += bTable.objectsOfType(CommObject).map buildAutomaton();
+}
+
+mapping State::transformState() : State {
+	name := self.name;
+}
+
+mapping CommObject::transformObj() : CommObject {
+	name := self.name
+}
+
+
+mapping Behaviour::transformBehaviour() : Behaviour {
+	inMessage := self.inMessage;
+	preState := self.preState;
+	postState := self.postState;
+	activation := self.activation;
+	
+}
+
+mapping CommObject::buildAutomaton() : IOAutomaton {
+	// get all behaviours the CommObject is involved in as a receiver and build an automaton out of it
+	var behTables := bTable.objectsOfType(BehaviourTable::BehaviourTable)->select(b | b.actor = self);
+	var myBehaviours := behTables.behaviours;
+	
+	actor := behTables->any(true).actor.resolveone(CommObject);	
+	states += myBehaviours.preState.resolve(State);	
+	transitions := myBehaviours.map transformBehaviour();
+	
+	result.print();
+	
+}
+
+helper IOAutomaton::print() {
+	log("====AUTOMATON====");
+	log("object: " + self.actor.name);
+	log("");
+	self.transitions->collect(t | log("\t" + t.preState.name + " -> " + t.postState.name + ": " + t.inMessage.name));
+	log("");
+	
 }
