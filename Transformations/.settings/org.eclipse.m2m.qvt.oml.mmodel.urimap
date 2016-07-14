@@ -3,4 +3,5 @@
   <mapping sourceURI="interactionMetamodel" targetURI="platform:/resource/Synthesis/model/interactionMetamodel/interactionMetamodel.ecore"/>
   <mapping sourceURI="interactionTable" targetURI="platform:/resource/Synthesis/model/interactionTable/interactionTable.ecore"/>
   <mapping sourceURI="behaviourTable" targetURI="platform:/resource/Synthesis/model/behaviourTable/behaviourTable.ecore#/"/>
+  <mapping sourceURI="ioAutomaton" targetURI="platform:/resource/Synthesis/model/ioAutomaton/IOAutomaton.ecore"/>
 </uriMap:MappingContainer>

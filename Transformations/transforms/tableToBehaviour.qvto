@@ -8,9 +8,7 @@ main() {
 	iTable.objectsOfKind(Operation).map transformOperation();
 	iTable.objectsOfKind(State).map transformState();
 	
-
-	var scenario := iTable.objectsOfKind(Scenario)->any(true);
-	scenario.map transformToTableSet();	
+	iTable.objectsOfType(ScenarioPackage).map transformToPackage();
 }
 
 mapping Operation::transformOperation() : Operation {
@@ -21,6 +19,9 @@ mapping State::transformState() : State {
 	name := self.name
 }
 
+mapping ScenarioPackage::transformToPackage() : BehaviourPackage {
+	tables += self.scenarios.map transformToTableSet()
+}
 
 mapping Scenario::transformToTableSet() : Set(BehaviourTable::BehaviourTable) {
 
@@ -33,7 +34,10 @@ mapping Scenario::transformToTableSet() : Set(BehaviourTable::BehaviourTable) {
 }
 
 helper Scenario::transformToTable(in sysObj : CommObject) : BehaviourTable::BehaviourTable {
+
+	log(self.name + "::" + sysObj.name);
 	return object BehaviourTable::BehaviourTable {
+		name := self.name;
 		behaviours := self.communications->select(c | c.message.receiver = sysObj).map transformCommunicationToBeh(sysObj, self);
 	};
 }

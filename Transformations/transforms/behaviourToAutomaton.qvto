@@ -1,0 +1,8 @@
+modeltype BehaviourTable uses 'behaviourTable';
+modeltype Automaton uses 'ioAutomaton';
+
+transformation behaviourToAutomaton();
+
+main() {
+
+}

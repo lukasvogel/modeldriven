@@ -7,30 +7,39 @@ property knownStates : Set(InteractionTable::State);
 
 main() {
 	
+	var package := object ScenarioPackage {} ;
+	
 	seqDiagram.objectsOfKind(StateInvariant).map transformeStateInvariant();
 	seqDiagram.objectsOfKind(Lifeline).map transformLifeline();
 	// don't transform the replies as they indicate the return type and no operation
 	seqDiagram.objectsOfKind(Message)->select(m | m.messageSort != MessageSort::reply).map transformMessage();
-	seqDiagram.objectsOfKind(Interaction).map transformInteraction();	
+	seqDiagram.objectsOfKind(Interaction).map transformInteraction(package);	
 }
 
 
-mapping Interaction::transformInteraction() : Scenario {
+mapping Interaction::transformInteraction(inout package : ScenarioPackage) : Scenario {
+	
+	log("<<<<<Transforming Interaction " + self.name + ">>>>");
+	log("");
+	
+	name := self.name;
 	
 	var resolvedExecSpecs : Set(ExecutionSpecification) := Set{};
 	
 	var allExecSpecs := self.fragment[ExecutionSpecification]->select(e | e.start.oclIsKindOf(MessageOccurrenceSpecification));
 	
+	
+	//allExecSpecs->collect(e | log(e.name));
+	
 	while (not resolvedExecSpecs->includesAll(allExecSpecs)) {
-		
+			
 		var remaining := allExecSpecs - resolvedExecSpecs;
 		while(not remaining->isEmpty()) {
 			
 			var curFrag := remaining->any(true);		
 			
 			var dependencies := curFrag.getEnclosedOccs()->select(oc | oc.message.messageSort = MessageSort::synchCall).getReceivingExecSpec();
-			
-			
+						
 									
 			if (not resolvedExecSpecs->includes(curFrag) and resolvedExecSpecs->includesAll(dependencies)) {
 				communications += curFrag.getEnclosedOccs()->select(oc | oc.message.messageSort = MessageSort::asynchCall).map transformMsgOccToUser();
@@ -40,6 +49,11 @@ mapping Interaction::transformInteraction() : Scenario {
 			remaining := remaining->excluding(curFrag);		
 		};
 	};
+	
+	package.scenarios += result;
+	
+	log("");
+	log("");
 		
 }
 
@@ -120,16 +134,14 @@ helper ExecutionSpecification::getEnclosedOccs() : OrderedSet(MessageOccurrenceS
 	var msgOccs := self.enclosingInteraction.fragment[MessageOccurrenceSpecification]->select(m | m.message.getSender() = self.covered->any(true) or 
 																								   m.message.messageSort != MessageSort::reply and m.message.getReceiver() = self.covered->any(true));
 	var startIdx := msgOccs->indexOf(self.start);
-		
 	var endIdx := msgOccs->indexOf(msgOccs->subOrderedSet(startIdx+1,msgOccs->size())->select(m | m.message.getReceiver() = self.covered->any(true))->first());
-	
 	
 	if (endIdx.oclIsInvalid()) {
 		//there was no subsequent call...	
 		endIdx := msgOccs->size();
 	};
 							
-	return msgOccs->subOrderedSet(startIdx+1,endIdx)->select(m | 
+	return msgOccs->subOrderedSet(startIdx,endIdx)->select(m | //startIdx+1?
 						m.message.getSender() = self.covered->any(true) and
 						m.message.messageSort != MessageSort::reply);
 	
