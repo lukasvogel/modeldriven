@@ -6,6 +6,7 @@ modeltype Automaton uses 'ioAutomaton';
 transformation automatonToUML(in automaton : Automaton, out uml : StateDiagram);
 
 main() {
+	automaton.objectsOfKind(InteractionTable::State).map transformState();
 	automaton.objectsOfKind(AutomatonPackage).map transformAutomatonPackage();
 
 }
@@ -15,6 +16,9 @@ mapping AutomatonPackage::transformAutomatonPackage() : Set(StateMachine) {
 	var diagrams := self.automatons.map transformAutomaton(); 
 }
 
+mapping InteractionTable::State::transformState() : StateDiagram::State {
+	name := self.name;
+}
 
 mapping IOAutomaton::transformAutomaton() : StateMachine {
 	name := self.actor.name;
@@ -50,9 +54,7 @@ mapping IOAutomaton::transformAutomaton() : StateMachine {
 mapping InteractionTable::State::toStateSet(in aut : IOAutomaton, inout region : Region) : Set(Vertex) {
 
 	init {
-		var stableState := object StateDiagram::State {
-			name := self.name;
-		};
+		var stableState :=  self.resolveone(StateDiagram::State);
 		
 		result += stableState;
 		
@@ -77,13 +79,13 @@ mapping InteractionTable::State::toStateSet(in aut : IOAutomaton, inout region :
 					source := stableState;
 					trigger += object Trigger {
 						name := curOp;
-					}
+					};
 				};
 				
 				// make an activity state for the current set
 				var activityState := object StateDiagram::State {
 					name := curBehs->any(true).activation.name;
-					submachine := curBehs->subStateMachine(trans);
+					submachine := curBehs->subStateMachine(trans, region);
 				};
 				
 				trans.target := activityState;
@@ -102,7 +104,7 @@ mapping InteractionTable::State::toStateSet(in aut : IOAutomaton, inout region :
 			
 }
 
-helper Set(BehaviourTable::Behaviour)::subStateMachine(inout transition : Transition) : StateDiagram::StateMachine {
+helper Set(BehaviourTable::Behaviour)::subStateMachine(inout transition : Transition, inout parentRegion : Region) : StateDiagram::StateMachine {
 	return object StateMachine {
 		name := "submachine for "+ self->any(true).activation.name;
 		
@@ -112,7 +114,7 @@ helper Set(BehaviourTable::Behaviour)::subStateMachine(inout transition : Transi
 		
 		var entryState := object Pseudostate {
 			kind := PseudostateKind::entryPoint;
-			name := "entryTo" + self->any(true).activation.name;
+			name := "entry";
 		};
 		myRegion.subvertex += entryState;
 		
@@ -125,28 +127,28 @@ helper Set(BehaviourTable::Behaviour)::subStateMachine(inout transition : Transi
 		myRegion.transition += firstTrans;
 		
 		
-		myRegion.subvertex += self.activation->asSet()->toStateFragments(firstTrans,1, myRegion);
+		myRegion.subvertex += self->toStateFragments(firstTrans,1, myRegion, parentRegion);
 
 		region += myRegion;
 		
 	}
 }
 
-helper Set(BehaviourTable::Activation)::toStateFragments(inout transition : Transition, in offset : Integer, inout region : Region) : Set(Vertex) {
+helper Set(BehaviourTable::Behaviour)::toStateFragments(inout transition : Transition, in offset : Integer, inout region : Region, inout parentRegion : Region) : Set(Vertex) {
 	
 	// first of all find the longest common prefix
 	var curOff := offset;
-	var curOp := self->any(a | a.outMessages->size() > 0).outMessages->at(curOff);
+	var curOp := self->any(b | b.activation.outMessages->size() > 0).activation.outMessages->at(curOff);
 	var commonPrefix : Sequence(BehaviourTable::OutMessage) = Sequence{};
 
-	while(self->forAll(a | a.outMessages->at(curOff).operation.name = curOp.operation.name 
-						and a.outMessages->at(curOff).returnType = curOp.returnType
-						and a.outMessages->at(curOff).recvObject = curOp.recvObject)) {
+	while(self->forAll(b | b.activation.outMessages->at(curOff).operation.name = curOp.operation.name 
+						and b.activation.outMessages->at(curOff).returnType = curOp.returnType
+						and b.activation.outMessages->at(curOff).recvObject = curOp.recvObject)) {
 						
 		// common prefix found!
 		commonPrefix += curOp;
 		curOff := curOff+1;
-		curOp := self->any(a | a.outMessages->size() > 0).outMessages->at(curOff);
+		curOp := self->any(b | b.activation.outMessages->size() > 0).activation.outMessages->at(curOff);
 		
 	};
 	
@@ -156,15 +158,15 @@ helper Set(BehaviourTable::Activation)::toStateFragments(inout transition : Tran
 	// Generate fragment with prefix
 	if (commonPrefix->size() > 0) {
 		var prefixState := object StateDiagram::State {
-			name := "prefixState" + curOff.toString();
+			//name := "prefixState" + curOff.toString();
 			doActivity := object StateDiagram::OpaqueBehavior {
 				//TODO: receiver
-				body += commonPrefix->collect(m | m.recvObject.name + "." + m.operation.name + ";\n");
+				body += commonPrefix->collect(m | m.recvObject.name + "." + m.operation.name + ";");
 			};
+			name := doActivity.oclAsType(OpaqueBehavior).body->at(1);
 		};	
 		transition.target := prefixState;
 		newTrans := object Transition {
-			name := "prefixOut" + curOff.toString();
 			source := prefixState;
 		};
 		region.transition += newTrans;
@@ -172,58 +174,65 @@ helper Set(BehaviourTable::Activation)::toStateFragments(inout transition : Tran
 	};
 	
 	// if after removing prefix something remains...
-	if(curOff <= self->any(true).outMessages->size()) {
+	if(curOff <= self->any(true).activation.outMessages->size()) {
 		
 		// find out which branches we have to follow.
 		// branches that start with the same prefix can stay together, so don't just split everything!
-		var branches := self->collectNested(a | a->select(b | a.outMessages->at(curOff).operation.name = b.outMessages->at(curOff).operation.name));
+		var branches := self->collectNested(a | a->select(b | a.activation.outMessages->at(curOff).operation.name = b.activation.outMessages->at(curOff).operation.name));
 		
 		// build the state that is responsible for the case distinction
 		var splitState := object StateDiagram::State {
-			name := "splitState" + curOff.toString();
+			//name := "splitState" + curOff.toString();
 			doActivity := object StateDiagram::OpaqueBehavior {
 				//TODO: receiver
-				body += "check := " + self->any(true).outMessages->at(curOff).recvObject.name + "." + self->any(true).outMessages->at(curOff).operation.name;
+				body += "check := " + self->any(true).activation.outMessages->at(curOff).recvObject.name + "." + self->any(true).activation.outMessages->at(curOff).operation.name;
 			};
+			name := doActivity.oclAsType(OpaqueBehavior).body->at(1);
 		};
 		newTrans.target :=  splitState;	
+		newTrans.name := "("+newTrans.source.name + ") to (" + newTrans.target.name+")";
 		
 		ret += splitState;
 		
 		// recursively call on all new distinct branches
-		// TODO: define new transitions
 		while(not branches->isEmpty()) {
 			var coBranch := branches->any(true);
-			var guardName := coBranch->asSequence()->at(curOff).outMessages->at(curOff).returnType;//self->any(b | b = coBranch).outMessages->at(curOff).returnType; //TODO falsch
+			var guardName := coBranch->asSequence()->at(curOff).activation.outMessages->at(curOff).returnType;//self->any(b | b = coBranch).outMessages->at(curOff).returnType; //TODO falsch
 			var branchTrans := object Transition {
-				name := "splitTransition" + curOff.toString();
+				
 				source := splitState;
 				guard := object Constraint {
-					name := "[ check = " + guardName + "]";
+					name := "[ check = " + guardName + " ]";
+					specification := object OpaqueExpression {
+						body := "check = " + guardName;
+					};
 				};
+				name := guard.name;
 			};
 			region.transition += branchTrans;
-			ret += coBranch->toStateFragments(branchTrans,curOff+1,region);
+			ret += coBranch->toStateFragments(branchTrans,curOff+1,region, parentRegion);
 			branches := branches->excluding(coBranch);
 		};
-		//ret += branches->collect(b | b->toStateFragments(transition,curOff+1,region));
 		
 	} else {
 		var exitState := object Pseudostate {
 			kind := PseudostateKind::exitPoint;
-			name := "exit" + curOff.toString();// TODO name to find it again
+			name := "exit from (" + newTrans.source.name+")";
 		};
 		newTrans.target := exitState;
-		
-		//self->any(true).postState.resolveone(Set(StateDiagram::State))->collect(n | log("s"+n.name));
-		//self->any(true).outMessages->at(curOff).recvObject.resolveone(StateDiagram::State)->collect(n | log("t"+n.name));
+		newTrans.name := "("+newTrans.source.name + ") to (" + newTrans.target.name+")";
 		
 		var exitTrans := object Transition {
-			name := "prefixOut" + curOff.toString();
+			
 			source := exitState;
-			//target :=  self->any(true).outMessages->at(curOff).recvObject.resolveone(Set(StateDiagram::State))->any(n | n.name = self->any(true).outMessages->at(curOff).recvObject.name);
+			target :=  self->any(true).postState.resolveone(StateDiagram::State);
+			effect := object OpaqueBehavior {
+				body := "return " + self->any(true).activation.returnType; 
+			};
+			name := "("+source.name + ") to (" + target.name+ ")";
 		};
-		
+		parentRegion.transition += exitTrans;
+		log(parentRegion.name);
 		
 		ret += exitState;
 	};
