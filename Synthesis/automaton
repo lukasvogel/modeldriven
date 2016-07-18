@@ -4,16 +4,17 @@
   <elite:CommObject name="atm"/>
   <elite:CommObject name="consortium"/>
   <elite:CommObject name="bank"/>
-  <elite:Operation name="requestTakeCard"/>
-  <elite:Operation name="requestTakeCard"/>
-  <elite:Operation name="printReceipt"/>
-  <elite:Operation name="requestPassword"/>
   <elite:Operation name="ejectCard"/>
-  <elite:Operation name="displayMainScreen"/>
-  <elite:Operation name="badAccountMessage"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="requestPassword"/>
   <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="displayMainScreen"/>
   <elite:Operation name="requestPassword"/>
+  <elite:Operation name="printReceipt"/>
   <elite:Operation name="ejectCard"/>
+  <elite:Operation name="badAccountMessage"/>
+  <elite:Operation name="verifyAccount"/>
   <elite:Operation name="takeCard"/>
   <elite:Operation name="insertCard"/>
   <elite:Operation name="enterPassword"/>
@@ -22,57 +23,56 @@
   <elite:Operation name="cancel"/>
   <elite:Operation name="enterPassword"/>
   <elite:Operation name="verifyCardWithBank"/>
-  <elite:Operation name="verifyAccount"/>
+  <elite_1:OutMessage operation="/18" returnType=":badBankAccount" recvObject="/3"/>
   <elite_1:OutMessage operation="/9" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/12" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/18" returnType=":badAccount" recvObject="/2"/>
-  <elite_1:OutMessage operation="/10" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/6" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/13" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/4" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/17" returnType=":badBankAccount" recvObject="/3"/>
-  <elite_1:OutMessage operation="/11" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/8" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/5" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/22" returnType=":badPassword" recvObject="/2"/>
   <elite_1:OutMessage operation="/7" returnType="void" recvObject="/0"/>
-  <elite_1:OutMessage operation="/21" returnType=":badBankPassword" recvObject="/3"/>
-  <elite_2:AutomatonPackage automatons="/40 /39 /38 /41"/>
+  <elite_1:OutMessage operation="/14" returnType=":badAccount" recvObject="/2"/>
+  <elite_1:OutMessage operation="/13" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/11" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/4" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/5" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/22" returnType=":badBankPassword" recvObject="/3"/>
+  <elite_1:OutMessage operation="/8" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/12" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/6" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/19" returnType=":badPassword" recvObject="/2"/>
+  <elite_1:OutMessage operation="/10" returnType="void" recvObject="/0"/>
+  <elite_2:AutomatonPackage automatons="/39 /38 /41 /40"/>
   <elite_2:IOAutomaton actor="/0"/>
-  <elite_2:IOAutomaton actor="/1" start="/39/@states.2">
-    <states name="WaitCard"/>
-    <states name="WaitTakeCard"/>
+  <elite_2:IOAutomaton actor="/1" start="/39/@states.1">
     <states name="WaitPassword"/>
-    <transitions preState="/39/@states.2" postState="/39/@states.2">
-      <inMessage name="enterPassword"/>
-      <activation returnType="void" outMessages="/34 /35" name=":enterPassword"/>
-    </transitions>
-    <transitions preState="/39/@states.2" postState="/39/@states.1">
-      <inMessage name="cancel"/>
-      <activation returnType="void" outMessages="/31 /32 /33" name=":cancel"/>
-    </transitions>
-    <transitions preState="/39/@states.2" postState="/39/@states.1">
-      <inMessage name="enterPassword"/>
-      <activation returnType="void" outMessages="/25 /26 /27 /28 /29" name=":enterPassword"/>
-    </transitions>
-    <transitions preState="/39/@states.0" postState="/39/@states.2">
+    <states name="WaitTakeCard"/>
+    <states name="WaitCard"/>
+    <transitions preState="/39/@states.2" postState="/39/@states.0">
       <inMessage name="insertCard"/>
-      <activation returnType="void" outMessages="/24" name=":insertCard"/>
+      <activation returnType="void" outMessages="/25" name=":insertCard"/>
     </transitions>
-    <transitions preState="/39/@states.1" postState="/39/@states.0">
+    <transitions preState="/39/@states.0" postState="/39/@states.0">
+      <inMessage name="enterPassword"/>
+      <activation returnType="void" outMessages="/35 /36" name=":enterPassword"/>
+    </transitions>
+    <transitions preState="/39/@states.0" postState="/39/@states.1">
+      <inMessage name="enterPassword"/>
+      <activation returnType="void" outMessages="/26 /27 /28 /29 /30" name=":enterPassword"/>
+    </transitions>
+    <transitions preState="/39/@states.0" postState="/39/@states.1">
+      <inMessage name="cancel"/>
+      <activation returnType="void" outMessages="/32 /33 /34" name=":cancel"/>
+    </transitions>
+    <transitions preState="/39/@states.1" postState="/39/@states.2">
       <inMessage name="takeCard"/>
-      <activation returnType="void" outMessages="/23" name=":takeCard"/>
+      <activation returnType="void" outMessages="/24" name=":takeCard"/>
     </transitions>
   </elite_2:IOAutomaton>
   <elite_2:IOAutomaton actor="/2" start="/40/@states.0">
     <states name="WaitVerify"/>
     <transitions preState="/40/@states.0" postState="/40/@states.0">
       <inMessage name="verifyAccount"/>
-      <activation returnType=":badAccount" outMessages="/30" name=":verifyAccount"/>
+      <activation returnType=":badAccount" outMessages="/23" name=":verifyAccount"/>
     </transitions>
     <transitions preState="/40/@states.0" postState="/40/@states.0">
       <inMessage name="verifyAccount"/>
-      <activation returnType=":badPassword" outMessages="/36" name=":verifyAccount"/>
+      <activation returnType=":badPassword" outMessages="/31" name=":verifyAccount"/>
     </transitions>
   </elite_2:IOAutomaton>
   <elite_2:IOAutomaton actor="/3" start="/41/@states.0">

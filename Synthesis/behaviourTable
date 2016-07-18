@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xmlns:elite_1="behaviourTable" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore behaviourTable model/behaviourTable/behaviourTable.ecore">
-  <elite:Operation name="requestTakeCard"/>
-  <elite:Operation name="requestTakeCard"/>
-  <elite:Operation name="printReceipt"/>
-  <elite:Operation name="requestPassword"/>
   <elite:Operation name="ejectCard"/>
-  <elite:Operation name="displayMainScreen"/>
-  <elite:Operation name="badAccountMessage"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="requestPassword"/>
   <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="displayMainScreen"/>
   <elite:Operation name="requestPassword"/>
+  <elite:Operation name="printReceipt"/>
   <elite:Operation name="ejectCard"/>
+  <elite:Operation name="badAccountMessage"/>
   <elite:State name="WaitPassword"/>
   <elite:State name="WaitVerify"/>
   <elite:State name="WaitBankVerify"/>
@@ -20,62 +20,62 @@
   <elite:CommObject name="consortium"/>
   <elite:CommObject name="bank"/>
   <elite_1:BehaviourPackage/>
-  <elite_1:BehaviourTable behaviours="/21 /23 /25" name="Bad account" actor="/16"/>
+  <elite_1:BehaviourTable behaviours="/21" name="Bad account" actor="/17"/>
+  <elite_1:Behaviour preState="/11" postState="/11">
+    <inMessage name="verifyAccount"/>
+    <activation returnType=":badAccount" outMessages="/22" name=":verifyAccount"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="/36/@inMessage" returnType=":badBankAccount" recvObject="/18"/>
+  <elite_1:BehaviourTable behaviours="/24 /26 /28" name="Bad account" actor="/16"/>
   <elite_1:Behaviour preState="/13" postState="/14">
     <inMessage name="takeCard"/>
-    <activation returnType="void" outMessages="/22" name=":takeCard"/>
+    <activation returnType="void" outMessages="/25" name=":takeCard"/>
   </elite_1:Behaviour>
   <elite_1:OutMessage operation="/5" returnType="void" recvObject="/15"/>
   <elite_1:Behaviour preState="/14" postState="/10">
     <inMessage name="insertCard"/>
-    <activation returnType="void" outMessages="/24" name=":insertCard"/>
+    <activation returnType="void" outMessages="/27" name=":insertCard"/>
   </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/8" returnType="void" recvObject="/15"/>
+  <elite_1:OutMessage operation="/3" returnType="void" recvObject="/15"/>
   <elite_1:Behaviour preState="/10" postState="/13">
     <inMessage name="enterPassword"/>
-    <activation returnType="void" outMessages="/26 /27 /28 /29 /30" name=":enterPassword"/>
+    <activation returnType="void" outMessages="/29 /30 /31 /32 /33" name=":enterPassword"/>
   </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/35/@inMessage" returnType=":badAccount" recvObject="/17"/>
-  <elite_1:OutMessage operation="/6" returnType="void" recvObject="/15"/>
-  <elite_1:OutMessage operation="/2" returnType="void" recvObject="/15"/>
+  <elite_1:OutMessage operation="/21/@inMessage" returnType=":badAccount" recvObject="/17"/>
   <elite_1:OutMessage operation="/9" returnType="void" recvObject="/15"/>
+  <elite_1:OutMessage operation="/7" returnType="void" recvObject="/15"/>
   <elite_1:OutMessage operation="/0" returnType="void" recvObject="/15"/>
+  <elite_1:OutMessage operation="/1" returnType="void" recvObject="/15"/>
   <elite_1:BehaviourTable name="Bad account" actor="/15"/>
-  <elite_1:BehaviourTable behaviours="/33" name="Bad account" actor="/18"/>
+  <elite_1:BehaviourTable behaviours="/36" name="Bad account" actor="/18"/>
   <elite_1:Behaviour preState="/12" postState="/12">
     <inMessage name="verifyCardWithBank"/>
     <activation returnType=":badBankAccount" name=":verifyCardWithBank"/>
   </elite_1:Behaviour>
-  <elite_1:BehaviourTable behaviours="/35" name="Bad account" actor="/17"/>
+  <elite_1:BehaviourTable behaviours="/38" name="Bad password" actor="/17"/>
   <elite_1:Behaviour preState="/11" postState="/11">
     <inMessage name="verifyAccount"/>
-    <activation returnType=":badAccount" outMessages="/36" name=":verifyAccount"/>
+    <activation returnType=":badPassword" outMessages="/39" name=":verifyAccount"/>
   </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/33/@inMessage" returnType=":badBankAccount" recvObject="/18"/>
-  <elite_1:BehaviourTable behaviours="/38 /42" name="Bad password" actor="/16"/>
+  <elite_1:OutMessage operation="/50/@inMessage" returnType=":badBankPassword" recvObject="/18"/>
+  <elite_1:BehaviourTable behaviours="/41 /45" name="Bad password" actor="/16"/>
   <elite_1:Behaviour preState="/10" postState="/13">
     <inMessage name="cancel"/>
-    <activation returnType="void" outMessages="/39 /40 /41" name=":cancel"/>
+    <activation returnType="void" outMessages="/42 /43 /44" name=":cancel"/>
   </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/7" returnType="void" recvObject="/15"/>
   <elite_1:OutMessage operation="/4" returnType="void" recvObject="/15"/>
-  <elite_1:OutMessage operation="/1" returnType="void" recvObject="/15"/>
+  <elite_1:OutMessage operation="/8" returnType="void" recvObject="/15"/>
+  <elite_1:OutMessage operation="/2" returnType="void" recvObject="/15"/>
   <elite_1:Behaviour preState="/10" postState="/10">
     <inMessage name="enterPassword"/>
-    <activation returnType="void" outMessages="/43 /44" name=":enterPassword"/>
+    <activation returnType="void" outMessages="/46 /47" name=":enterPassword"/>
   </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/49/@inMessage" returnType=":badPassword" recvObject="/17"/>
-  <elite_1:OutMessage operation="/3" returnType="void" recvObject="/15"/>
+  <elite_1:OutMessage operation="/38/@inMessage" returnType=":badPassword" recvObject="/17"/>
+  <elite_1:OutMessage operation="/6" returnType="void" recvObject="/15"/>
   <elite_1:BehaviourTable name="Bad password" actor="/15"/>
-  <elite_1:BehaviourTable behaviours="/47" name="Bad password" actor="/18"/>
+  <elite_1:BehaviourTable behaviours="/50" name="Bad password" actor="/18"/>
   <elite_1:Behaviour preState="/12" postState="/12">
     <inMessage name="verifyCardWithBank"/>
     <activation returnType=":badBankPassword" name=":verifyCardWithBank"/>
   </elite_1:Behaviour>
-  <elite_1:BehaviourTable behaviours="/49" name="Bad password" actor="/17"/>
-  <elite_1:Behaviour preState="/11" postState="/11">
-    <inMessage name="verifyAccount"/>
-    <activation returnType=":badPassword" outMessages="/50" name=":verifyAccount"/>
-  </elite_1:Behaviour>
-  <elite_1:OutMessage operation="/47/@inMessage" returnType=":badBankPassword" recvObject="/18"/>
 </xmi:XMI>
