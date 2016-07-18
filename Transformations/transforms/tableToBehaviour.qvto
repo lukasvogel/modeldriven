@@ -17,7 +17,8 @@ mapping Operation::transformOperation() : Operation {
 }
 
 mapping State::transformState() : State {
-	name := self.name
+	name := self.name;
+	isInit := self.isInit;
 }
 
 mapping CommObject::transformObj() : CommObject {

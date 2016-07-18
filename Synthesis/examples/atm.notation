@@ -18,7 +18,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ksWuIUXYEeaLo5vtPVuNtw" x="42" y="27" width="16" height="712"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_flZbYEXYEeaLo5vtPVuNtw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_flgwIUXYEeaLo5vtPVuNtw" x="51" y="10" width="100" height="868"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_flgwIUXYEeaLo5vtPVuNtw" x="51" y="10" width="100" height="872"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_gqwg8EXYEeaLo5vtPVuNtw" type="Lifeline_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_gqwg8kXYEeaLo5vtPVuNtw" type="Lifeline_NameLabel"/>
@@ -72,7 +72,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z9drQUXZEeaLo5vtPVuNtw" x="47" y="815"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_gquEsEXYEeaLo5vtPVuNtw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gqwg8UXYEeaLo5vtPVuNtw" x="240" y="10" width="100" height="868"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gqwg8UXYEeaLo5vtPVuNtw" x="240" y="10" width="100" height="872"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_hWAdYEXYEeaLo5vtPVuNtw" type="Lifeline_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_hWBEcEXYEeaLo5vtPVuNtw" type="Lifeline_NameLabel"/>
@@ -100,7 +100,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Ylp4UXZEeaLo5vtPVuNtw" x="52" y="827"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_hV9aEEXYEeaLo5vtPVuNtw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hWAdYUXYEeaLo5vtPVuNtw" x="438" y="10" width="100" height="868"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hWAdYUXYEeaLo5vtPVuNtw" x="438" y="10" width="100" height="872"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_iHb6UEXYEeaLo5vtPVuNtw" type="Lifeline_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_iHchYEXYEeaLo5vtPVuNtw" type="Lifeline_NameLabel"/>
@@ -128,7 +128,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_31pdwUXZEeaLo5vtPVuNtw" x="43" y="831"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_iHZeEEXYEeaLo5vtPVuNtw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iHb6UUXYEeaLo5vtPVuNtw" x="612" y="10" width="100" height="868"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iHb6UUXYEeaLo5vtPVuNtw" x="612" y="10" width="100" height="872"/>
         </children>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QZD0FEXYEeaLo5vtPVuNtw"/>
       </children>
@@ -152,7 +152,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjPEncEea2054qujDw5w" x="42" y="44" width="16" height="500"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_WjfU4UncEea2054qujDw5w"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjPUncEea2054qujDw5w" x="39" y="10" width="100" height="693"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjPUncEea2054qujDw5w" x="39" y="10" width="100" height="699"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_WjgjPkncEea2054qujDw5w" type="Lifeline_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_WjgjP0ncEea2054qujDw5w" type="Lifeline_NameLabel"/>
@@ -193,7 +193,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjZEncEea2054qujDw5w" x="47" y="520"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_WjfU4kncEea2054qujDw5w"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjZUncEea2054qujDw5w" x="214" y="10" width="100" height="693"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjZUncEea2054qujDw5w" x="214" y="10" width="100" height="699"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_WjgjZkncEea2054qujDw5w" type="Lifeline_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_WjgjZ0ncEea2054qujDw5w" type="Lifeline_NameLabel"/>
@@ -221,7 +221,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjfUncEea2054qujDw5w" x="50" y="292"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_WjfU40ncEea2054qujDw5w"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjfkncEea2054qujDw5w" x="406" y="10" width="100" height="693"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjfkncEea2054qujDw5w" x="406" y="10" width="100" height="699"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_Wjgjf0ncEea2054qujDw5w" type="Lifeline_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_WjgjgEncEea2054qujDw5w" type="Lifeline_NameLabel"/>
@@ -249,7 +249,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjlkncEea2054qujDw5w" x="51" y="309"/>
           </children>
           <element xmi:type="uml:Lifeline" href="atm.uml#_WjfU5EncEea2054qujDw5w"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Wjgjl0ncEea2054qujDw5w" x="634" y="10" width="100" height="693"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Wjgjl0ncEea2054qujDw5w" x="634" y="10" width="100" height="699"/>
         </children>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WjgjmEncEea2054qujDw5w"/>
       </children>

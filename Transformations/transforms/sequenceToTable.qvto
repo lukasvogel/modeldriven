@@ -10,6 +10,7 @@ main() {
 	var package := object ScenarioPackage {} ;
 	
 	seqDiagram.objectsOfKind(Lifeline).map transformLifeline();
+	seqDiagram.objectsOfKind(StateInvariant)->select(s | s.oclAsType(StateInvariant).name.substringBefore("_") = "00").map transformeStateInvariant();
 	seqDiagram.objectsOfKind(StateInvariant).map transformeStateInvariant();
 	// don't transform the replies as they indicate the return type and no operation
 	seqDiagram.objectsOfKind(Message)->select(m | m.messageSort != MessageSort::reply).map transformMessage();
@@ -63,6 +64,11 @@ mapping StateInvariant::transformeStateInvariant() : InteractionTable::State
 		knownStates->select(s | s.name = self.name.substringAfter("_"))->isEmpty();
 	}{
 	name := self.name.substringAfter("_");
+	if (self.name.substringBefore("_") = "00") {
+		result.isInit := true;
+		log("initial State : " + name);
+	};
+	
 	knownStates := knownStates->including(result);
 } 
 

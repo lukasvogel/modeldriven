@@ -20,6 +20,7 @@ mapping BehaviourPackage::transformBehPackage() : AutomatonPackage {
 
 mapping State::transformState() : State {
 	name := self.name;
+	isInit := self.isInit;
 }
 
 mapping CommObject::transformObj() : CommObject {
@@ -60,12 +61,8 @@ mapping CommObject::buildAutomaton() : IOAutomaton {
 	
 	
 	
-	while(behTables->size() > 1) {
-		var curTable := behTables->any(true);
-		var stillPossible := behTables->select(b | not curTable.behaviours.preState->includes(b.behaviours->at(1).preState));
-		behTables := stillPossible;
-	};
-	start := behTables->any(true).behaviours->at(1).preState.resolveone(State);	
+	var initialStates := behTables->collect(t | t.behaviours.preState)->select(s | s.isInit);
+	start := initialStates->any(true).resolveone(State);	
 	result.print();
 	
 }
