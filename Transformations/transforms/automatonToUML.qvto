@@ -1,0 +1,204 @@
+modeltype InteractionTable uses 'interactionTable';
+modeltype BehaviourTable uses 'behaviourTable';
+modeltype StateDiagram uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype Automaton uses 'ioAutomaton';
+
+transformation automatonToUML(in automaton : Automaton, out uml : StateDiagram);
+
+main() {
+	automaton.objectsOfKind(AutomatonPackage).map transformAutomatonPackage();
+
+}
+
+
+mapping AutomatonPackage::transformAutomatonPackage() : Set(StateMachine) {
+	var diagrams := self.automatons.map transformAutomaton(); 
+}
+
+
+mapping IOAutomaton::transformAutomaton() : StateMachine {
+	name := self.actor.name;
+	
+	var initialState := object Pseudostate {
+		kind := PseudostateKind::initial;
+		name := "init";
+	};
+	
+	var initialTransition := object Transition {
+		name := "initTrans";
+		source := initialState;
+		// TODO: this does not work this way, rewrite
+		target := self.start.resolveone(StateDiagram::State);
+	};
+	
+	
+	var myRegion := object Region {
+		name := "region of " + self.actor.name;
+		subvertex += initialState;
+		transition += initialTransition;
+	};
+	
+	myRegion.subvertex += self.transitions.preState.map toStateSet(self, myRegion);
+	
+	
+	region += myRegion;	
+}
+
+//transforms a State to a Set of a stable state and the corresponding activity states
+//all states are properly linked with the right transitions
+//respective the given automaton
+mapping InteractionTable::State::toStateSet(in aut : IOAutomaton, inout region : Region) : Set(Vertex) {
+
+	init {
+		var stableState := object StateDiagram::State {
+			name := self.name;
+		};
+		
+		result += stableState;
+		
+		// we get all operations our object understands in the current state
+		var ops := aut.getAllApplicableOps(self);
+		
+		log("");
+		log("Object: " + aut.actor.name);
+		log("State: " + self.name);
+		
+		
+		//we get all corresponding behaviours we have to deal with
+		while(not ops->isEmpty()) {
+			var curOp := ops->any(true);
+			var curBehs := aut.getAllBehaviours(self,curOp);
+			
+			if (curBehs->size() > 0) {
+			
+
+				var trans := object Transition {
+					name := curOp;
+					source := stableState;
+					trigger += object Trigger {
+						name := curOp;
+					}
+				};
+				
+				// make an activity state for the current set
+				var activityState := object StateDiagram::State {
+					name := curBehs->any(true).activation.name;
+					submachine := curBehs->subStateMachine(trans);
+				};
+				
+				trans.target := activityState;
+				
+				region.transition += trans;
+				result += activityState;
+				
+				curBehs->collect(b | log(b.inMessage.name));
+				
+			};
+			
+			ops := ops->excluding(curOp);
+		};
+		
+	}
+			
+}
+
+helper Set(BehaviourTable::Behaviour)::subStateMachine(inout transition : Transition) : StateDiagram::StateMachine {
+	return object StateMachine {
+		name := "submachine for "+ self->any(true).activation.name;
+		
+		var myRegion := object Region {
+			name := "region of " + self->any(true).activation.name;
+		};
+		
+		var initialState := object Pseudostate {
+			kind := PseudostateKind::initial;
+			name := "init";
+		};
+		
+		transition.target := initialState;
+	
+		var firstTrans = object Transition {
+			name := "initTrans";
+			source := initialState;
+		};
+		
+		
+		myRegion.subvertex += self.activation->asSet()->toStateFragments(firstTrans,1);
+
+		region += myRegion;
+		
+	}
+}
+
+helper Set(BehaviourTable::Activation)::toStateFragments(inout transition : Transition, in offset : Integer) : Set(Vertex) {
+
+
+	// base case, nothing more to do	
+	if (self->forAll(a | offset = a.outMessages->size() + 1)) {
+		return Set{};
+	};
+	
+	
+	// first of all find the longest common prefix
+	var curOff := offset;
+	var curOp := self->any(a | a.outMessages->size() > 0).outMessages->at(curOff);
+	var commonPrefix : Sequence(BehaviourTable::OutMessage) = Sequence{};
+
+	while(self->forAll(a | a.outMessages->at(curOff).operation.name = curOp.operation.name 
+						and a.outMessages->at(curOff).returnType = curOp.returnType
+						and a.outMessages->at(curOff).recvObject = curOp.recvObject)) {
+						
+		// common prefix found!
+		commonPrefix += curOp;
+		curOff := curOff+1;
+		curOp := self->any(a | a.outMessages->size() > 0).outMessages->at(curOff);
+		
+	};
+	
+	var ret : Set(StateDiagram::Vertex) := Set{};
+	
+	// Generate fragment with prefix
+	if (commonPrefix->size() > 0) {
+		var prefixState := object StateDiagram::State {
+			doActivity := object StateDiagram::OpaqueBehavior {
+				//TODO: receiver
+				body += commonPrefix->collect(m | "." + m.operation.name + ";\n");
+			};
+		};	
+		
+		transition.target := prefixState;
+		ret += prefixState;
+	};
+	
+	// if after removing prefix something remains...
+	if(curOff <= self->any(true).outMessages->size()) {
+		
+		// find out which branches we have to follow.
+		// branches that start with the same prefix can stay together, so don't just split everything!
+		var branches := self->collectNested(a | a->select(b | a.outMessages->at(curOff).operation.name = b.outMessages->at(curOff).operation.name));
+		
+		// build the state that is responsible for the case distinction
+		var splitState := object StateDiagram::State {
+			doActivity := object StateDiagram::OpaqueBehavior {
+				//TODO: receiver
+				body += "check := " + self->any(true).outMessages->at(curOff).operation.name;
+			};
+		};	
+		
+		ret += splitState;
+		
+		// recursively call on all new distinct branches
+		// TODO: define new transitions
+		ret += branches->collect(b | b->toStateFragments(transition,curOff+1))
+	};
+		
+	return ret;
+}
+
+helper IOAutomaton::getAllBehaviours(in state : InteractionTable::State, in opName : String) : Set(BehaviourTable::Behaviour) {
+	return self.transitions->select(b | b.preState = state and b.inMessage.name = opName);
+}
+
+helper IOAutomaton::getAllApplicableOps(in state : InteractionTable::State) : Set(String) {
+	return self.transitions->collect(b | b.inMessage.name)->asSet();
+}

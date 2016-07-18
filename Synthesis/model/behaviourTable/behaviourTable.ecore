@@ -29,6 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outMessages" upperBound="-1"
         eType="#//OutMessage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BehaviourPackage">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"

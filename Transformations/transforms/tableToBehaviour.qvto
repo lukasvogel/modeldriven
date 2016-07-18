@@ -66,6 +66,7 @@ mapping Communication::transformCommunicationToBeh(in obj : CommObject, in scena
 	log("");
 			
 	activation := object Activation {
+		name := ":" + result.inMessage.name;
 		outMessages := self.covers.map transformCommunicationToOutMsg();
 		returnType := self.returnType;
 	};

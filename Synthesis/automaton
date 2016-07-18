@@ -1,95 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xmlns:elite_1="ioAutomaton" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore ioAutomaton model/ioAutomaton/IOAutomaton.ecore">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xmlns:elite_1="behaviourTable" xmlns:elite_2="ioAutomaton" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore behaviourTable model/behaviourTable/behaviourTable.ecore ioAutomaton model/ioAutomaton/IOAutomaton.ecore">
   <elite:CommObject name="user"/>
   <elite:CommObject name="atm"/>
   <elite:CommObject name="consortium"/>
   <elite:CommObject name="bank"/>
-  <elite_1:AutomatonPackage automatons="/5 /8 /7 /6"/>
-  <elite_1:IOAutomaton actor="/0"/>
-  <elite_1:IOAutomaton actor="/1">
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="printReceipt"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:Operation name="displayMainScreen"/>
+  <elite:Operation name="badAccountMessage"/>
+  <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:Operation name="takeCard"/>
+  <elite:Operation name="insertCard"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="verifyAccount"/>
+  <elite:Operation name="cancel"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="verifyAccount"/>
+  <elite_1:OutMessage operation="/9" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/12" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/18" returnType=":badAccount" recvObject="/2"/>
+  <elite_1:OutMessage operation="/10" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/6" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/13" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/4" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/17" returnType=":badBankAccount" recvObject="/3"/>
+  <elite_1:OutMessage operation="/11" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/8" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/5" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/22" returnType=":badPassword" recvObject="/2"/>
+  <elite_1:OutMessage operation="/7" returnType="void" recvObject="/0"/>
+  <elite_1:OutMessage operation="/21" returnType=":badBankPassword" recvObject="/3"/>
+  <elite_2:AutomatonPackage automatons="/40 /39 /38 /41"/>
+  <elite_2:IOAutomaton actor="/0"/>
+  <elite_2:IOAutomaton actor="/1" start="/39/@states.2">
     <states name="WaitCard"/>
     <states name="WaitTakeCard"/>
     <states name="WaitPassword"/>
-    <transitions>
-      <preState href="behaviourTable#/13"/>
-      <postState href="behaviourTable#/14"/>
-      <inMessage name="takeCard"/>
-      <activation returnType="void">
-        <outMessages href="behaviourTable#/26"/>
-      </activation>
+    <transitions preState="/39/@states.2" postState="/39/@states.2">
+      <inMessage name="enterPassword"/>
+      <activation returnType="void" outMessages="/34 /35" name=":enterPassword"/>
     </transitions>
-    <transitions>
-      <preState href="behaviourTable#/10"/>
-      <postState href="behaviourTable#/13"/>
+    <transitions preState="/39/@states.2" postState="/39/@states.1">
       <inMessage name="cancel"/>
-      <activation returnType="void">
-        <outMessages href="behaviourTable#/43"/>
-        <outMessages href="behaviourTable#/44"/>
-        <outMessages href="behaviourTable#/45"/>
-      </activation>
+      <activation returnType="void" outMessages="/31 /32 /33" name=":cancel"/>
     </transitions>
-    <transitions>
-      <preState href="behaviourTable#/10"/>
-      <postState href="behaviourTable#/13"/>
+    <transitions preState="/39/@states.2" postState="/39/@states.1">
       <inMessage name="enterPassword"/>
-      <activation returnType="void">
-        <outMessages href="behaviourTable#/30"/>
-        <outMessages href="behaviourTable#/31"/>
-        <outMessages href="behaviourTable#/32"/>
-        <outMessages href="behaviourTable#/33"/>
-        <outMessages href="behaviourTable#/34"/>
-      </activation>
+      <activation returnType="void" outMessages="/25 /26 /27 /28 /29" name=":enterPassword"/>
     </transitions>
-    <transitions>
-      <preState href="behaviourTable#/10"/>
-      <postState href="behaviourTable#/10"/>
-      <inMessage name="enterPassword"/>
-      <activation returnType="void">
-        <outMessages href="behaviourTable#/47"/>
-        <outMessages href="behaviourTable#/48"/>
-      </activation>
-    </transitions>
-    <transitions>
-      <preState href="behaviourTable#/14"/>
-      <postState href="behaviourTable#/10"/>
+    <transitions preState="/39/@states.0" postState="/39/@states.2">
       <inMessage name="insertCard"/>
-      <activation returnType="void">
-        <outMessages href="behaviourTable#/28"/>
-      </activation>
+      <activation returnType="void" outMessages="/24" name=":insertCard"/>
     </transitions>
-  </elite_1:IOAutomaton>
-  <elite_1:IOAutomaton actor="/2">
+    <transitions preState="/39/@states.1" postState="/39/@states.0">
+      <inMessage name="takeCard"/>
+      <activation returnType="void" outMessages="/23" name=":takeCard"/>
+    </transitions>
+  </elite_2:IOAutomaton>
+  <elite_2:IOAutomaton actor="/2" start="/40/@states.0">
     <states name="WaitVerify"/>
-    <transitions>
-      <preState href="behaviourTable#/11"/>
-      <postState href="behaviourTable#/11"/>
+    <transitions preState="/40/@states.0" postState="/40/@states.0">
       <inMessage name="verifyAccount"/>
-      <activation returnType=":badAccount">
-        <outMessages href="behaviourTable#/23"/>
-      </activation>
+      <activation returnType=":badAccount" outMessages="/30" name=":verifyAccount"/>
     </transitions>
-    <transitions>
-      <preState href="behaviourTable#/11"/>
-      <postState href="behaviourTable#/11"/>
+    <transitions preState="/40/@states.0" postState="/40/@states.0">
       <inMessage name="verifyAccount"/>
-      <activation returnType=":badPassword">
-        <outMessages href="behaviourTable#/40"/>
-      </activation>
+      <activation returnType=":badPassword" outMessages="/36" name=":verifyAccount"/>
     </transitions>
-  </elite_1:IOAutomaton>
-  <elite_1:IOAutomaton actor="/3">
+  </elite_2:IOAutomaton>
+  <elite_2:IOAutomaton actor="/3" start="/41/@states.0">
     <states name="WaitBankVerify"/>
-    <transitions>
-      <preState href="behaviourTable#/12"/>
-      <postState href="behaviourTable#/12"/>
+    <transitions preState="/41/@states.0" postState="/41/@states.0">
       <inMessage name="verifyCardWithBank"/>
-      <activation returnType=":badBankPassword"/>
+      <activation returnType=":badBankAccount" name=":verifyCardWithBank"/>
     </transitions>
-    <transitions>
-      <preState href="behaviourTable#/12"/>
-      <postState href="behaviourTable#/12"/>
+    <transitions preState="/41/@states.0" postState="/41/@states.0">
       <inMessage name="verifyCardWithBank"/>
-      <activation returnType=":badBankAccount"/>
+      <activation returnType=":badBankPassword" name=":verifyCardWithBank"/>
     </transitions>
-  </elite_1:IOAutomaton>
+  </elite_2:IOAutomaton>
 </xmi:XMI>

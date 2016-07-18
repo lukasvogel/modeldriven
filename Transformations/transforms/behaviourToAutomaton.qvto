@@ -7,6 +7,9 @@ transformation behaviourToAutomaton(in bTable : BehaviourTable, out automaton : 
 main() {
 	bTable.objectsOfKind(State).map transformState();
 	bTable.objectsOfKind(CommObject).map transformObj();
+	bTable.objectsOfKind(Operation).map transformOperation();
+	
+	bTable.objectsOfKind(Activation).map transformActivation();
 
 	bTable.objectsOfKind(BehaviourPackage).map transformBehPackage();
 }
@@ -23,13 +26,27 @@ mapping CommObject::transformObj() : CommObject {
 	name := self.name
 }
 
+mapping Activation::transformActivation() : Activation {
+	outMessages := self.outMessages.map transformOutMessage();
+	returnType := self.returnType;
+	name := self.name;
+}
+
+mapping Operation::transformOperation() : Operation {
+	name := self.name;
+}
+
+mapping OutMessage::transformOutMessage() : OutMessage {
+	operation := self.operation.resolveone(Operation);
+	returnType := self.returnType;
+	recvObject := self.recvObject.resolveone(CommObject);
+}
 
 mapping Behaviour::transformBehaviour() : Behaviour {
 	inMessage := self.inMessage;
-	preState := self.preState;
-	postState := self.postState;
-	activation := self.activation;
-	
+	preState := self.preState.resolveone(State);
+	postState := self.postState.resolveone(State);
+	activation := self.activation.resolveone(Activation);
 }
 
 mapping CommObject::buildAutomaton() : IOAutomaton {
@@ -38,9 +55,11 @@ mapping CommObject::buildAutomaton() : IOAutomaton {
 	var myBehaviours := behTables.behaviours;
 	
 	actor := behTables->any(true).actor.resolveone(CommObject);	
-	states += myBehaviours.preState.resolve(State);	
+	states := myBehaviours.preState.resolve(State);	
 	transitions := myBehaviours.map transformBehaviour();
 	
+	
+	start := behTables->any(true).behaviours->at(1).preState.resolveone(State);	
 	result.print();
 	
 }
@@ -48,6 +67,7 @@ mapping CommObject::buildAutomaton() : IOAutomaton {
 helper IOAutomaton::print() {
 	log("====AUTOMATON====");
 	log("object: " + self.actor.name);
+	log("start: " + self.start.name);
 	log("");
 	self.transitions->collect(t | log("\t" + t.preState.name + " -> " + t.postState.name + ": " + t.inMessage.name));
 	log("");
