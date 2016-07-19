@@ -88,7 +88,7 @@ mapping InteractionTable::State::toStateSet(in aut : IOAutomaton, inout region :
 					submachine := curBehs->subStateMachine(trans, region);
 				};
 				
-				trans.target := activityState;
+				//trans.target := activityState;
 				
 				region.transition += trans;
 				result += activityState;
@@ -215,26 +215,51 @@ helper Set(BehaviourTable::Behaviour)::toStateFragments(inout transition : Trans
 		};
 		
 	} else {
-		var exitState := object Pseudostate {
-			kind := PseudostateKind::exitPoint;
-			name := "exit from (" + newTrans.source.name+")";
-		};
-		newTrans.target := exitState;
-		newTrans.name := "("+newTrans.source.name + ") to (" + newTrans.target.name+")";
+		// there are no more operations, but the return types or the post states of the activations could differ, 
+		// so create an exitState for each different activations
+		var exits : Set(String) = Set{};
+		var behaviours := self;
+		while(not behaviours->isEmpty()) {
+			var behaviour := behaviours->any(true);
+			var string := behaviour.postState.name.toString() + behaviour.activation.returnType.toString();
+			if(not exits->includes(string)){
+				// the exit point does not exist yet, create it and add the string to exits set
+				
+				// if newTrans was already used, create a new one and add it to the region
+				if(newTrans.target != null){
+					var oldSource := newTrans.source;
+					newTrans := object Transition {
+						source := oldSource;
+					};
+					region.transition += newTrans;
+				};
+				// create exitState, add it to region and set the target of newTrans to it
+				var exitState := object Pseudostate {
+					kind := PseudostateKind::exitPoint;
+					name := "exit from (" + newTrans.source.name+")";
+				};
+				newTrans.target := exitState;
+				newTrans.name := "("+newTrans.source.name + ") to (" + newTrans.target.name+")";
 		
-		var exitTrans := object Transition {
-			
-			source := exitState;
-			target :=  self->any(true).postState.resolveone(StateDiagram::State);
-			effect := object OpaqueBehavior {
-				body := "return " + self->any(true).activation.returnType; 
+				// create the outgoing transition from the exitPoint
+				var exitTrans := object Transition {
+					source := exitState;
+					target :=  behaviour.postState.resolveone(StateDiagram::State);
+					effect := object OpaqueBehavior {
+						body := "return " + behaviour.activation.returnType; 
+					};
+					name := "("+source.name + ") to (" + target.name+ ")";
 			};
-			name := "("+source.name + ") to (" + target.name+ ")";
+			
+			parentRegion.transition += exitTrans;
+			ret += exitState;
+			
+			exits += string;
+			};
+			behaviours := behaviours->excluding(behaviour);
 		};
-		parentRegion.transition += exitTrans;
-		log(parentRegion.name);
 		
-		ret += exitState;
+
 	};
 	
 	return ret;
