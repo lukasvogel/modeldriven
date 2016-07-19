@@ -16,11 +16,8 @@
   <semanticResources>http://www.eclipse.org/uml2/5.0.0/Types</semanticResources>
   <semanticResources>interactionMetamodel/interactionMetamodel.genmodel</semanticResources>
   <semanticResources>../examples/atmBadPassword.uml</semanticResources>
-  <semanticResources>../interactionTable</semanticResources>
   <semanticResources>../examples/atm.notation</semanticResources>
   <semanticResources>../examples/atm.uml</semanticResources>
-  <semanticResources>../behaviourTable</semanticResources>
-  <semanticResources>../out.uml</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_oiNWcDcTEea92svM-dbfuA">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_6tBgsDk6EeaulLa1Q0dWSg" name="interactionTable">
