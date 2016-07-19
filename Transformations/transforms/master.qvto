@@ -8,12 +8,7 @@ modeltype BehaviourTable uses 'behaviourTable';
 modeltype Automaton uses 'ioAutomaton';
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
-transformation master(in sequenceDiagram : UML, out stateDiagram : UML)
-	access transformation sequenceDiagramToTable(in seq : UML, out interaction : InteractionTable)
-	access transformation interactionToBehaviourTable(in interaction : InteractionTable, out behaviour : BehaviourTable)
-	access transformation behaviourToAutomaton(in behaviour : BehaviourTable, out automaton : Automaton)
-	access transformation automatonToUML(in automaton : Automaton, out stateDiagram : UML);
-	
+transformation master(in sequenceDiagram : UML, out stateDiagram : UML);	
 
 main() {
 
