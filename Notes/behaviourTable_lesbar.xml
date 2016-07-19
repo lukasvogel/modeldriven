@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xmlns:elite_1="behaviourTable" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore behaviourTable model/behaviourTable/behaviourTable.ecore">
+  <elite:Operation name="ejectCard"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="printReceipt"/>
+  <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="badAccountMessage"/>
+  <elite:Operation name="displayMainScreen"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:State name="WaitVerify" isInit="true"/>
+  <elite:State name="WaitCard" isInit="true"/>
+  <elite:State name="WaitBankVerify" isInit="true"/>
+  <elite:State name="WaitPassword"/>
+  <elite:State name="WaitTakeCard"/>
+  <elite:CommObject name="user"/>
+  <elite:CommObject name="atm"/>
+  <elite:CommObject name="consortium"/>
+  <elite:CommObject name="bank"/>
+  <elite_1:BehaviourPackage/>
+  <elite_1:BehaviourTable behaviours="/21" name="Bad account" actor="bank"/>
+  <elite_1:Behaviour preState="WaitBankVerify" postState="WaitBankVerify">
+    <inMessage name="verifyCardWithBank"/>
+    <activation returnType=":badBankAccount" name=":verifyCardWithBank"/>
+  </elite_1:Behaviour>
+  <elite_1:BehaviourTable behaviours="/23" name="Bad account" actor="consortium"/>
+  <elite_1:Behaviour preState="WaitVerify" postState="WaitVerify">
+    <inMessage name="verifyAccount"/>
+    <activation returnType=":badAccount" outMessages="/24" name=":verifyAccount"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="VerifyCardWithBank" returnType=":badBankAccount" recvObject="bank"/>
+  <elite_1:BehaviourTable name="Bad account" actor="user"/>
+  <elite_1:BehaviourTable behaviours="/27 /29 /31" name="Bad account" actor="atm"/>
+  <elite_1:Behaviour preState="WaitCard" postState="WaitPassword">
+    <inMessage name="insertCard"/>
+    <activation returnType="void" outMessages="/28" name=":insertCard"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="requestPassword" returnType="void" recvObject="user"/>
+  <elite_1:Behaviour preState="WaitTakeCard" postState="WaitCard">
+    <inMessage name="takeCard"/>
+    <activation returnType="void" outMessages="/30" name=":takeCard"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="displayMainScreen" returnType="void" recvObject="user"/>
+  <elite_1:Behaviour preState="WaitPassword" postState="WaitTakeCard">
+    <inMessage name="enterPassword"/>
+    <activation returnType="void" outMessages="/32 /33 /34 /35 /36" name=":enterPassword"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="verifyAccount" returnType=":badAccount" recvObject="consortium"/>
+  <elite_1:OutMessage operation="badAccountMessage" returnType="void" recvObject="user"/>
+  <elite_1:OutMessage operation="printReceipt" returnType="void" recvObject="user"/>
+  <elite_1:OutMessage operation="ejectCard" returnType="void" recvObject="user"/>
+  <elite_1:OutMessage operation="requestTakeCard" returnType="void" recvObject="user"/>
+  <elite_1:BehaviourTable behaviours="/38" name="Bad password" actor="bank"/>
+  <elite_1:Behaviour preState="WaitBankVerify" postState="WaitBankVerify">
+    <inMessage name="verifyCardWithBank"/>
+    <activation returnType=":badBankPassword" name=":verifyCardWithBank"/>
+  </elite_1:Behaviour>
+  <elite_1:BehaviourTable behaviours="/40" name="Bad password" actor="consortium"/>
+  <elite_1:Behaviour preState="WaitVerify" postState="WaitVerify">
+    <inMessage name="verifyAccount"/>
+    <activation returnType=":badPassword" outMessages="/41" name=":verifyAccount"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="verifyCardWithBank" returnType=":badBankPassword" recvObject="bank"/>
+  <elite_1:BehaviourTable name="Bad password" actor="user"/>
+  <elite_1:BehaviourTable behaviours="/44 /48" name="Bad password" actor="atm"/>
+  <elite_1:Behaviour preState="WaitPassword" postState="WaitTakeCard">
+    <inMessage name="cancel"/>
+    <activation returnType="void" outMessages="/45 /46 /47" name=":cancel"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="canceledMessage" returnType="void" recvObject="user"/>
+  <elite_1:OutMessage operation="ejectCard" returnType="void" recvObject="user"/>
+  <elite_1:OutMessage operation="requestTakeCard" returnType="void" recvObject="user"/>
+  <elite_1:Behaviour preState="WaitPassword" postState="WaitPassword">
+    <inMessage name="enterPassword"/>
+    <activation returnType="void" outMessages="/49 /50" name=":enterPassword"/>
+  </elite_1:Behaviour>
+  <elite_1:OutMessage operation="verifyAccount" returnType=":badPassword" recvObject="consortium"/>
+  <elite_1:OutMessage operation="requestPassword" returnType="void" recvObject="user"/>
+</xmi:XMI>

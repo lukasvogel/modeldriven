@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elite="interactionTable" xsi:schemaLocation="interactionTable model/interactionTable/interactionTable.ecore">
+  <elite:ScenarioPackage scenarios="Bad account Bad password"/>
+  <elite:CommObject name="user"/>
+  <elite:CommObject name="atm"/>
+  <elite:CommObject name="consortium"/>
+  <elite:CommObject name="bank"/>
+  <elite:State name="WaitVerify" isInit="true"/>
+  <elite:State name="WaitCard" isInit="true"/>
+  <elite:State name="WaitBankVerify" isInit="true"/>
+  <elite:State name="WaitPassword"/>
+  <elite:State name="WaitTakeCard"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="verifyAccount"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="printReceipt"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="insertCard"/>
+  <elite:Operation name="cancel"/>
+  <elite:Operation name="canceledMessage"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="enterPassword"/>
+  <elite:Operation name="verifyCardWithBank"/>
+  <elite:Operation name="requestPassword"/>
+  <elite:Operation name="badAccountMessage"/>
+  <elite:Operation name="displayMainScreen"/>
+  <elite:Operation name="requestTakeCard"/>
+  <elite:Operation name="verifyAccount"/>
+  <elite:Operation name="takeCard"/>
+  <elite:Operation name="ejectCard"/>
+  <elite:Scenario name="Bad account">
+    <communications xsi:type="elite:SystemCommunication" returnType=":badBankAccount" postState="WaitBankVerify" preState="WaitBankVerify">
+      <message operation="verifyCardWithBank" sender="consortium" receiver="bank"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="requestPassword" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/Bad account/@communications.1" postState="WaitPassword" preState="WaitCard">
+      <message operation="insertCard" sender="user" receiver="atm"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="displayMainScreen" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/Bad account/@communications.3" postState="WaitCard" preState="WaitTakeCard">
+      <message operation="takeCard" sender="user" receiver="atm"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badAccount" covers="/Bad account/@communications.0" postState="WaitVerify" preState="WaitVerify">
+      <message operation="verifyAccount" sender="atm" receiver="consortium"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="badAccountMessage" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="printReceipt" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="ejectCard" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="requestTakeCard" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/Bad account/@communications.5 /Bad account/@communications.6 /Bad account/@communications.7 /Bad account/@communications.8 /Bad account/@communications.9" postState="WaitTakeCard" preState="WaitPassword">
+      <message operation="enterPassword" sender="user" receiver="atm"/>
+    </communications>
+  </elite:Scenario>
+  <elite:Scenario name="Bad password">
+    <communications xsi:type="elite:SystemCommunication" returnType=":badBankPassword" postState="WaitBankVerify" preState="WaitBankVerify">
+      <message operation="verifyCardWithBank" sender="consortium" receiver="bank"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="canceledMessage" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="ejectCard" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="requestTakeCard" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/Bad password/@communications.1 /Bad password/@communications.2 /Bad password/@communications.3" postState="WaitTakeCard" preState="WaitPassword">
+      <message operation="cancel" sender="user" receiver="atm"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType=":badPassword" covers="/Bad password/@communications.0" postState="WaitVerify" preState="WaitVerify">
+      <message operation="verifyAccount" sender="atm" receiver="consortium"/>
+    </communications>
+    <communications xsi:type="elite:UserCommunication" returnType="void">
+      <message operation="requestPassword" sender="atm" receiver="user"/>
+    </communications>
+    <communications xsi:type="elite:SystemCommunication" returnType="void" covers="/Bad password/@communications.5 /Bad password/@communications.6" postState="WaitPassword" preState="WaitPassword">
+      <message operation="enterPassword" sender="user" receiver="atm"/>
+    </communications>
+  </elite:Scenario>
+</xmi:XMI>
